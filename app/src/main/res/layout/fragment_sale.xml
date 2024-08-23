@@ -298,7 +298,7 @@
                             android:layout_gravity="center"
 
                             android:backgroundTint="@color/white"
-                            android:src="@drawable/account_balance" />
+                            android:src="@drawable/add_circle_icon" />
 
                         <ImageButton
                             android:id="@+id/iedit"
@@ -522,6 +522,12 @@
                                 android:textColor="@color/black"
                                 android:textStyle="bold" />
 
+                            <Button
+                                android:id="@+id/button2"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:text="Button" />
 
 
                         </LinearLayout>
@@ -699,6 +705,209 @@
 
             </androidx.cardview.widget.CardView>
 
+
+            <!--amountvlue-->
+        <LinearLayout
+            android:id="@+id/totalamtlayout"
+            android:layout_width="400dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="5dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/totalamounttxt"
+                android:layout_width="300dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:padding="10dp"
+                android:text="Total Amount:"
+                android:textColor="@color/black"
+                android:textStyle="bold" />
+
+
+            <TextView
+                android:id="@+id/totalamounttxt1"
+                android:layout_width="300dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="200dp"
+                android:padding="10dp"
+                android:text="value"
+                android:textColor="@color/black"
+                android:textStyle="bold" />
+
+        </LinearLayout>
+
+            <!--receivdamountvlue-->
+            <LinearLayout
+                android:id="@+id/Receivedamtlayout"
+                android:layout_width="400dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="5dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/receivedamounttxt"
+                    android:layout_width="300dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:padding="10dp"
+                    android:text="Net Amount:"
+                    android:textColor="@color/black"
+                    android:textStyle="bold" />
+
+
+                <EditText
+                    android:id="@+id/receivedamtedit"
+                    android:layout_width="300dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="200dp"
+                    android:padding="10dp"
+                    android:text="value"
+                    android:textColor="@color/black"
+                    android:textStyle="bold" />
+
+            </LinearLayout>
+
+            <!--returnamountvlue-->
+
+            <LinearLayout
+                android:id="@+id/returnamtlayout"
+                android:layout_width="400dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="5dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/returnamounttxt"
+                    android:layout_width="300dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:padding="10dp"
+                    android:text="Balance Due:"
+                    android:textColor="@color/black"
+                    android:textStyle="bold" />
+
+
+                <TextView
+                    android:id="@+id/returnamounttxt1"
+                    android:layout_width="300dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="200dp"
+                    android:padding="10dp"
+                    android:text="value"
+                    android:textColor="@color/black"
+                    android:textStyle="bold" />
+
+            </LinearLayout>
+
+
+            <!--paymentmod-->
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/paymentcard"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="10dp"
+
+                android:layout_marginBottom="10dp"
+                android:background="@drawable/et_style">
+
+                <LinearLayout
+                    android:id="@+id/paymentlayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginBottom="20dp"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:id="@+id/paylayout"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:id="@+id/paytxt"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_marginStart="10dp"
+                            android:padding="10dp"
+                            android:text="Payment Mode"
+                            android:textColor="@color/black"
+                            android:textStyle="bold" />
+
+
+                    </LinearLayout>
+
+
+
+                    <LinearLayout
+                        android:id="@+id/radiolayout"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:orientation="vertical">
+
+                        <RadioGroup
+                            android:id="@+id/sradioGroup"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_centerInParent="true"
+                            android:layout_gravity="center"
+                            android:layout_marginStart="10dp"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginEnd="10dp"
+                            android:gravity="center">
+
+                            <!--adding a radio button -->
+                            <RadioButton
+                                android:id="@+id/cash"
+                                android:layout_width="200dp"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:checked="false"
+                                android:padding="4dp"
+                                android:text="cash"
+                                android:textAlignment="center"
+                                android:textSize="16sp" />
+
+                            <!--adding a radio button -->
+                            <RadioButton
+                                android:id="@+id/credit"
+                                android:layout_width="200dp"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:checked="false"
+                                android:padding="4dp"
+                                android:text="credit"
+                                android:textAlignment="center"
+                                android:textSize="16sp" />
+
+
+                        </RadioGroup>
+                        <Button
+                            android:id="@+id/addnewcardbtn"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:backgroundTint="@color/white"
+                            android:text="Add New Card"
+                            android:textColor="@color/btn_color"
+                            />
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+
+
+            </androidx.cardview.widget.CardView>
 
         </LinearLayout>
     </ScrollView>

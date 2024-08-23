@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/card"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+
+
+        android:background="@drawable/et_style"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <LinearLayout
+            android:id="@+id/cardlayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="20dp"
+            android:orientation="vertical">
+
+
+            <TextView
+                android:id="@+id/addcardtxt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+
+                android:layout_marginStart="10dp"
+                android:padding="10dp"
+
+                android:text="Add Card "
+                android:textColor="@color/black"
+                android:textStyle="bold" />
+
+
+            <TextView
+                android:id="@+id/entercardtxt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="10dp"
+                android:padding="10dp"
+
+                android:text="Enter Card Details"
+                android:textColor="@color/black"
+                android:textStyle="bold" />
+
+
+            <TextView
+                android:id="@+id/cardnametxt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="10dp"
+                android:padding="10dp"
+                android:text="Cardholder Name"
+                android:textColor="@color/black"
+                android:textStyle="bold" />
+
+
+            <EditText
+                android:id="@+id/cnedit"
+                android:layout_width="300dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/rect_shape"
+                android:backgroundTint="@color/bg_color"
+                android:hint="Cardholder Name"
+                android:padding="10dp"
+                android:textColor="@color/black"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/cardnotxt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="10dp"
+                android:padding="10dp"
+                android:text="Card Number"
+                android:textColor="@color/black"
+                android:textStyle="bold" />
+
+            <EditText
+                android:id="@+id/cardnoedit"
+                android:layout_width="300dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/rect_shape"
+                android:backgroundTint="@color/bg_color"
+                android:hint="card no"
+                android:padding="10dp"
+                android:textColor="@color/black"
+                android:textStyle="bold" />
+        <LinearLayout
+            android:id="@+id/eclayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/expiredatetxt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="10dp"
+                android:padding="10dp"
+                android:text="Expiry Date"
+                android:textColor="@color/black"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/cvvtxt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="100dp"
+                android:layout_marginTop="10dp"
+                android:padding="10dp"
+                android:text="CVV"
+                android:textColor="@color/black"
+                android:textStyle="bold" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/eclayout1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+
+            android:layout_marginBottom="20dp"
+            android:orientation="horizontal">
+
+
+            <EditText
+                android:id="@+id/expiryedit"
+                android:layout_width="180dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/rect_shape"
+                android:backgroundTint="@color/bg_color"
+                android:hint="expiry"
+                android:padding="10dp"
+                android:textColor="@color/black"
+                android:textStyle="bold" />
+
+            <EditText
+                android:id="@+id/cvvedit"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/rect_shape"
+                android:backgroundTint="@color/bg_color"
+                android:hint="cvv"
+                android:padding="10dp"
+                android:textColor="@color/black"
+                android:textStyle="bold" />
+        </LinearLayout>
+
+            <Button
+                android:id="@+id/addcard"
+                android:layout_width="300dp"
+                android:layout_gravity="center"
+                android:layout_height="wrap_content"
+                android:text="Add Card" />
+
+        </LinearLayout>
+
+
+
+    </androidx.cardview.widget.CardView>
+</androidx.constraintlayout.widget.ConstraintLayout>

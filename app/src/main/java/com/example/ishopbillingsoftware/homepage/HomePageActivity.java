@@ -50,7 +50,7 @@ public class HomePageActivity extends AppCompatActivity {
     Toolbar home_toolbar;
     Fragment selectedFragment;
 
-    String token,userid;
+   public static String token,userid;
 
 
 

@@ -15,6 +15,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.ishopbillingsoftware.R;
+import com.example.ishopbillingsoftware.accounts.AccountActivity;
 import com.example.ishopbillingsoftware.items.APIResponseProductItem;
 import com.example.ishopbillingsoftware.items.AddNewActivity;
 import com.example.ishopbillingsoftware.items.ProductItem;
@@ -65,16 +66,19 @@ public class HomeItemsAdapter extends RecyclerView.Adapter<HomeItemsAdapter.View
                 String itemname1 = model.getItemname();
                 Toast.makeText(context.getApplicationContext(), model.getItemname(),Toast.LENGTH_LONG).show();
                 if (itemname1.equals("Accounts")){
-                    Intent in = new Intent(context.getApplicationContext(), AddNewActivity.class);
+                    Intent in = new Intent(context.getApplicationContext(), AccountActivity.class);
+                    in.putExtra("token",HomePageActivity.token);
                     context.startActivity(in);
                 } else if (itemname1.equals("Items")) {
                     Intent in = new Intent(context.getApplicationContext(), AddNewActivity.class);
+                    in.putExtra("token",HomePageActivity.token);
                     context.startActivity(in);
                 } else if (itemname1.equals("Outstandings")) {
                     Intent in = new Intent(context.getApplicationContext(), AddNewActivity.class);
                     context.startActivity(in);
                 }else if (itemname1.equals("Sales")) {
                     Intent in = new Intent(context.getApplicationContext(), SalesActivity.class);
+                    in.putExtra("token",HomePageActivity.token);
                     context.startActivity(in);
                 } else if (itemname1.equals("Purchases")) {
                     Intent in = new Intent(context.getApplicationContext(), AddNewActivity.class);
