@@ -5,10 +5,7 @@
         android:id="@+id/dashboard_tab"
         android:title="Dashboard"
         android:icon="@drawable/ic_dashboard" />
-<!--    <item-->
-<!--        android:id="@+id/analytics_tab"-->
-<!--        android:title="Analytics"-->
-<!--        android:icon="@drawable/ic_analytics"/>-->
+
     <item
         android:id="@+id/report_tab"
         android:title="Reports"
