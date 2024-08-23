@@ -9,6 +9,7 @@ import java.util.HashMap;
 
 import retrofit2.Call;
 import retrofit2.http.Body;
+import retrofit2.http.Header;
 import retrofit2.http.Headers;
 import retrofit2.http.POST;
 import retrofit2.http.PUT;
@@ -41,8 +42,6 @@ public interface UserService {
     @PUT("api/productitems/updateProductItem")
     Call<APIResponseUpdate>update(@Body HashMap<String, Object> fields);
 
-
-
     @Headers({"Content-Type: application/json;charset=UTF-8"})
     @POST("api/productitems/deleteProductItem")
     Call<APIResponseUpdate> delete (@Body HashMap<String, String> fields);
@@ -52,9 +51,10 @@ public interface UserService {
     @POST("api/users/createAccount")
     Call<APIResponseUpdate> create (@Body HashMap<String, String> fields);
 
-    @Headers({ "Content-Type: application/json;charset=UTF-8"})
-    @POST("api/users/getAllAccountDetails")
-    Call<APIResponseData> getAllAccountDetails();
+    @Headers({"Content-Type: application/json;charset=UTF-8"})
+    @POST("/api/users/getAllAccountDetails")
+    Call<APIResponseData> getAllAccountDetails(@Header("Authorization") String token);
+
 
     @Headers({"Content-Type: application/json;charset=UTF-8"})
     @POST("api/users/updateAccountDetails")

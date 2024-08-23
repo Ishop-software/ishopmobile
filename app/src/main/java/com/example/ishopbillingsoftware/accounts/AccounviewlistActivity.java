@@ -1,6 +1,7 @@
 package com.example.ishopbillingsoftware.accounts;
 
 import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -36,6 +37,7 @@ public class AccounviewlistActivity extends AppCompatActivity {
     private List<AccountList> originalAccountList;
 
     ImageButton filterbtn;
+    String token;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -50,6 +52,11 @@ public class AccounviewlistActivity extends AppCompatActivity {
         filterbtn = (ImageButton) findViewById(R.id.filterbtn);
         filterbtn.setVisibility(View.GONE);
 
+
+        Intent in = getIntent();
+        token = in.getStringExtra("token");
+
+
         getItemALL();
         search();
 
@@ -58,7 +65,8 @@ public class AccounviewlistActivity extends AppCompatActivity {
     private void getItemALL() {
 
         try {
-            Call<APIResponseData> call = ApiClient.getUserService().getAllAccountDetails();
+
+            Call<APIResponseData> call = ApiClient.getUserService().getAllAccountDetails(token);
 
             call.enqueue(new Callback<APIResponseData>() {
 

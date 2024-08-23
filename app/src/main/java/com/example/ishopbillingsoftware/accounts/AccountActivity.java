@@ -36,7 +36,7 @@ Spinner printasspinner,groupspinner,undergroupspinner,statespinner,
         drcrspinner,cityspinner;
 
 String  printas,group,undergroup,state,
-        drcr,city;
+        drcr,city,token;
 
 
 
@@ -67,6 +67,14 @@ String  printas,group,undergroup,state,
         statespinner = findViewById(R.id.statespinner);
         drcrspinner = findViewById(R.id.drcrspinner);//
 
+        savebtn = findViewById(R.id.savebtn);
+        deletebtn = findViewById(R.id.deletebtn);
+        viewbtn = findViewById(R.id.viewbtn);
+
+
+        Intent in = getIntent();
+        token = in.getStringExtra("token");
+
 
 
         savebtn.setOnClickListener(new View.OnClickListener() {
@@ -79,12 +87,13 @@ String  printas,group,undergroup,state,
         deletebtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                Toast.makeText(getApplicationContext(),"delete",Toast.LENGTH_LONG).show();
             }
         });
         viewbtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Toast.makeText(getApplicationContext(),"view",Toast.LENGTH_LONG).show();
 
                 Intent in = new Intent(getApplicationContext(),AccounviewlistActivity.class);
                 startActivity(in);
