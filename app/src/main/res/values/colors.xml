@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <color name="btn_color">#35affd</color>
+
+
+<color name="colorPrimary">#ffffff</color>
+<color name="colorPrimaryDark">#ffffff</color>
+<color name="colorAccent">#ffffff</color>
+
+
+
+<color name="gradient_start_color">#4c84ff</color>
+<color name="gradient_end_color">#18a3fe</color>
+
+
+<color name="tab_indicator_gray">#c0c0c0</color>
+<color name="intro_title_color">#000000</color>
+<color name="intro_description_color">#656565</color>
+<color name="correct_answer">#8BC5EA</color>
+
+
+<color name="purple_200">#FFBB86FC</color>
+<color name="purple_500">#FF6200EE</color>
+<color name="purple_700">#FF3700B3</color>
+<color name="teal_200">#FF03DAC5</color>
+<color name="teal_700">#FF018786</color>
+<color name="black">#FF000000</color>
+<color name="white">#FFFFFFFF</color>
+<color name="background">#00adb5</color>
+<color name="button">#28abb9</color>
+<color name="text">#2d6187</color>
+<!--    <color name="bg_color">#EFF5EF</color>-->
+<color name="bg_color">#f4f9f9</color>
+<color name="button_color">#00adb5</color>
+<color name="special_text_color">#1ea5fc</color>
+<color name="button_text_color">#ffffff</color>
+
+
+<color name="tab_selected_color">@color/special_text_color</color>
+<color name="tab_unselected_color">@color/special_text_color</color>
+
+<color name="tab_icon_selected_color">@color/special_text_color</color>
+<color name="tab_icon_unselected_color">#e0d2e2</color>
+
+<color name="tab_text_selected_color">@color/special_text_color</color>
+<color name="tab_text_unselected_color">#e0d2e2</color>
+
+<color name="tab_indicator_color">@color/special_text_color</color>
+
+
+<!--    sub_icon_colors-->
+<color name="ico_mat_color">#39A2DB</color>
+<color name="ico_phy_color">#D83A56</color>
+<color name="ico_che_color">#0c9</color>
+<color name="ico_bot_color">#5d8233</color>
+<color name="ico_zoo_color">#753422</color>
+<color name="ico_acc_color">#d12a21</color>
+<color name="ico_comm_color">#9B72AA</color>
+<color name="ico_his_color">#E1701A</color>
+<color name="ico_geo_color">#39A6A3</color>
+<color name="ico_eco_color">#903</color>
+<color name="ico_stat_color">#669</color>
+<color name="ico_comp_color">#716f81</color>
+<color name="ico_civ_color">#069</color>
+<color name="ico_eng_color">#04009A</color>
+<color name="ico_tam_color">#297F87</color>
+<color name="end_test">#F4511E</color>
+
+
+    <color name="primary_dark_text">#28333d</color>
+    <color name="secondary_text">#434343</color>
+    <color name="secondary_light">#0A0A0A</color>
+
+    <color name="icons">#FFFFFF</color>
+    <color name="divider">#BDBDBD</color>
+
+    <color name="colorDarkGrey">#868080</color>
+
+    <color name="custom_divider_color">#dfdfdf</color>
+    <color name="highlight_text">#17A1D7</color>
+    <color name="popupmenu">#59B9FF</color>
+    <color name="btn_blue">#FF5C1BEF</color>
+    <color name="logoutbtn">#FF1E1E</color>
+
+
+
+    <color name="grey">#bfbfbf</color>
+    <color name="grey2">#ebebeb</color>
+
+    <color name="light_gray">#d8d6d5</color>
+
+    <color name="posts_counter_bg">#df3e3e3e</color>
+
+    <color name="like_icon_activated">#FF5252</color>
+    <color name="icons_counter_color">#828181</color>
+    <color name="circle_image_shadow">#8b8b8b</color>
+
+    <color name="sliderbgcolor">#0097d3</color>
+    <color name="send_comment_button_deactivated">#7fcbe9</color>
+
+    <color name="facebook_button_color">#3b5999</color>
+    <color name="facebook_button_color_pressed">#2f477a</color>
+    <color name="google_button_color">#d44837</color>
+    <color name="google_button_color_pressed">#FFA43528</color>
+    <color name="button_pressed_text_color">#bcbcbc</color>
+
+    <color name="follow_button_color">#0097d3</color>
+    <color name="follow_button_pressed_color">#0087BC</color>
+    <color name="follow_button_light_color">@color/white</color>
+    <color name="follow_button_light_pressed_color">#f7f7f7</color>
+
+
+    <color name="dot_dark_screen1">#C2185B</color>
+    <color name="dot_dark_screen2">#430d64</color>
+    <color name="dot_dark_screen3">#00695C</color>
+    <color name="dot_dark_screen4">#ef6c00</color>
+    <color name="dot_dark_screen5">#3E2723</color>
+
+    <color name="dot_light_screen1">#F8BBD0</color>
+    <color name="dot_light_screen2">#E1BEE7</color>
+    <color name="dot_light_screen3">#80CBC4</color>
+    <color name="dot_light_screen4">#FFE0B2</color>
+    <color name="dot_light_screen5">#A1887F</color>
+
+
+    <array name="dot_active">
+        <item>@color/dot_light_screen1</item>
+        <item>@color/dot_light_screen2</item>
+        <item>@color/dot_light_screen3</item>
+        <item>@color/dot_light_screen4</item>
+        <item>@color/dot_light_screen5</item>
+    </array>
+
+    <array name="dot_inactive">
+        <item>@color/dot_dark_screen1</item>
+        <item>@color/dot_dark_screen2</item>
+        <item>@color/dot_dark_screen3</item>
+        <item>@color/dot_dark_screen4</item>
+        <item>@color/dot_dark_screen5</item>
+    </array>
+
+
+    <color name="colorWhite">#B8F8F8F8</color>
+    <color name="colorGrey">#c3c3c3 </color>
+
+</resources>

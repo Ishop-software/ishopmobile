@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/my_nav"
+    app:startDestination="@id/dashboard_fragment">
+
+    <fragment
+        android:id="@+id/dashboard_fragment"
+        android:name="com.example.ishop.homepage.DashboardFragment"
+        android:label="fragment_home_fragment"
+        tools:layout="@layout/fragment_dash" />
+<!--    <fragment-->
+<!--        android:id="@+id/analytics_fragment"-->
+<!--        android:name="com.netcom.netsmartapp.homePageFragments.analytics_fragment"-->
+<!--        android:label="fragment_analytics_fragment"-->
+<!--        tools:layout="@layout/fragment_analytics_fragment" />-->
+    <fragment
+        android:id="@+id/report_fragment"
+        android:name="com.example.ishop.homepage.ReportFragment"
+        android:label="fragment_report_fragment"
+        tools:layout="@layout/fragment_report" />
+    <fragment
+        android:id="@+id/subscription_fragment"
+        android:name="com.example.ishop.homepage.SubscriptionFragment"
+        android:label="fragment_subscription_fragment"
+        tools:layout="@layout/fragment_subscription" />
+</navigation>

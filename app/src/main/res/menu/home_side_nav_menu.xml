@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group android:checkableBehavior="none">
+        <item android:id="@+id/m_ledger"
+            android:icon="@drawable/ic_accounticon"
+            android:title="Ledger"/>
+
+
+
+        <item android:id="@+id/m_cashpayment"
+            android:icon="@drawable/ic_accounticon"
+            android:title="Cash Payment"/>
+
+        <item android:id="@+id/m_cashreceipt"
+            android:icon="@drawable/ic_report"
+            android:title="Cash Receipt"/>
+
+        <item android:id="@+id/m_journal"
+            android:icon="@drawable/ic_report"
+            android:title="Journal Entry"/>
+
+
+
+        <item android:id="@+id/m_gst"
+            android:icon="@drawable/ic_report"
+            android:title="GST"/>
+
+        <item android:id="@+id/m_appinfo"
+            android:icon="@drawable/ic_report"
+            android:title="App info"/>
+
+
+        <item android:id="@+id/m_termsandcondition"
+            android:icon="@drawable/ic_report"
+            android:title="Terms and condition"/>
+
+        <item android:id="@+id/m_signout"
+            android:icon="@drawable/ic_report"
+            android:title="Signout"/>
+
+
+    </group>
+</menu>

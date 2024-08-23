@@ -1,0 +1,710 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".sales.SaleFragment">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:orientation="horizontal" >
+                <TextView
+                    android:id="@+id/saletxt"
+                    android:layout_width="300dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:padding="10dp"
+                    android:text="Sale Details"
+                    android:textColor="@color/black"
+                    android:textStyle="bold" />
+
+                <ImageButton
+                    android:id="@+id/imageButton2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:backgroundTint="@color/white"
+                    android:src="@drawable/print_icon" />
+
+            </LinearLayout>
+
+            <!--party-->
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/partycard"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="10dp"
+
+                android:layout_marginBottom="10dp"
+                android:background="@drawable/et_style">
+
+                <LinearLayout
+                    android:id="@+id/partylayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginBottom="20dp"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:id="@+id/playout"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:id="@+id/partytxt"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_marginStart="10dp"
+                            android:padding="10dp"
+
+                            android:text="Party Name"
+                            android:textColor="@color/black"
+                            android:textStyle="bold" />
+
+
+                    </LinearLayout>
+                    <!--partyspinnerlayout-->
+                    <LinearLayout
+                        android:id="@+id/partyspinnerlayout"
+                        android:layout_width="400dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:orientation="horizontal">
+
+                        <Spinner
+                            android:id="@+id/partyspinner"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="10dp"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginEnd="10dp"
+                            android:layout_marginBottom="10dp"
+                            android:layout_weight="1"
+                            android:background="@drawable/spinner_bg"
+                            android:padding="10dp" />
+
+                        <ImageButton
+                            android:id="@+id/addnewbtn"
+                            android:layout_width="wrap_content"
+                            android:layout_height="50dp"
+                            android:layout_gravity="center"
+
+                            android:backgroundTint="@color/white"
+                            android:src="@drawable/add_circle_icon" />
+
+                        <ImageButton
+                            android:id="@+id/edit"
+                            android:layout_width="wrap_content"
+                            android:layout_height="50dp"
+                            android:layout_gravity="center"
+                            android:layout_marginEnd="10dp"
+
+                            android:backgroundTint="@color/white"
+                            android:src="@drawable/edit_icon" />
+                    </LinearLayout>
+
+                    <!--date&bil-->
+                    <LinearLayout
+                        android:id="@+id/billdatelayout"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:orientation="vertical">
+
+                        <LinearLayout
+                            android:id="@+id/billdatelayout1"
+                            android:layout_width="400dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="5dp"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:id="@+id/billnotxt"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:layout_marginStart="10dp"
+                                android:padding="10dp"
+
+                                android:text="Bill No"
+                                android:textColor="@color/black"
+                                android:textStyle="bold" />
+
+                            <TextView
+                                android:id="@+id/duedatetxt"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:layout_marginStart="100dp"
+                                android:padding="10dp"
+
+                                android:text="Due Date"
+                                android:textColor="@color/black"
+                                android:textStyle="bold" />
+
+
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:id="@+id/editbilldate"
+                            android:layout_width="400dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="5dp"
+                            android:layout_marginBottom="5dp"
+                            android:orientation="horizontal">
+
+
+                            <EditText
+                                android:id="@+id/billnoedit"
+                                android:layout_width="150dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="10dp"
+                                android:layout_marginTop="10dp"
+                                android:background="@drawable/rect_shape"
+                                android:backgroundTint="@color/bg_color"
+                                android:hint="Bill No"
+                                android:layout_marginBottom="5dp"
+                                android:padding="10dp"
+                                android:textColor="@color/black"
+                                android:textStyle="bold" />
+                            <EditText
+                                android:id="@+id/duedateedit"
+                                android:layout_width="180dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="10dp"
+                                android:layout_marginTop="10dp"
+                                android:layout_marginBottom="5dp"
+                                android:background="@drawable/rect_shape"
+                                android:backgroundTint="@color/bg_color"
+                                android:hint="Due Date"
+                                android:padding="10dp"
+                                android:textColor="@color/black"
+                                android:textStyle="bold" />
+
+                            <ImageButton
+                                android:id="@+id/calender"
+                                android:layout_width="wrap_content"
+                                android:layout_height="50dp"
+                                android:layout_gravity="center"
+
+                                android:backgroundTint="@color/white"
+                                android:src="@drawable/calendar" />
+
+
+                        </LinearLayout>
+                    </LinearLayout>
+
+                </LinearLayout>
+
+
+
+            </androidx.cardview.widget.CardView>
+
+            <!--item-->
+
+            <TextView
+                android:id="@+id/itemstxt"
+                android:layout_width="300dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:padding="10dp"
+                android:text="Items"
+                android:textColor="@color/black"
+                android:textStyle="bold" />
+
+            <!--itemcard-->
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/itemcard"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="10dp"
+                android:layout_marginBottom="10dp"
+                android:background="@drawable/et_style">
+
+                <LinearLayout
+                    android:id="@+id/itemlayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginBottom="20dp"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:id="@+id/ilayout"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:id="@+id/itemtxt"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_marginStart="10dp"
+                            android:padding="10dp"
+
+                            android:text="Item Name"
+                            android:textColor="@color/black"
+                            android:textStyle="bold" />
+
+
+                    </LinearLayout>
+                    <!--partyspinnerlayout-->
+                    <LinearLayout
+                        android:id="@+id/itemspinnerlayout"
+                        android:layout_width="400dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:orientation="horizontal">
+
+                        <Spinner
+                            android:id="@+id/itemspinner"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="10dp"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginEnd="10dp"
+                            android:layout_marginBottom="10dp"
+                            android:layout_weight="1"
+                            android:background="@drawable/spinner_bg"
+                            android:padding="10dp" />
+
+                        <ImageButton
+                            android:id="@+id/iaddnew"
+                            android:layout_width="wrap_content"
+                            android:layout_height="50dp"
+                            android:layout_gravity="center"
+
+                            android:backgroundTint="@color/white"
+                            android:src="@drawable/account_balance" />
+
+                        <ImageButton
+                            android:id="@+id/iedit"
+                            android:layout_width="wrap_content"
+                            android:layout_height="50dp"
+                            android:layout_gravity="center"
+                            android:layout_marginEnd="10dp"
+
+                            android:backgroundTint="@color/white"
+                            android:src="@drawable/edit_icon" />
+                    </LinearLayout>
+
+                    <!--qty & free -->
+                    <LinearLayout
+                        android:id="@+id/quntfreelayout"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:orientation="vertical">
+
+                        <LinearLayout
+                            android:id="@+id/quntfreelayout1"
+                            android:layout_width="400dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="5dp"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:id="@+id/qtytxt"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:layout_marginStart="10dp"
+                                android:padding="10dp"
+
+                                android:text="Qty"
+                                android:textColor="@color/black"
+                                android:textStyle="bold" />
+
+                            <TextView
+                                android:id="@+id/freetxt"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:layout_marginStart="120dp"
+                                android:padding="10dp"
+
+                                android:text="Free"
+                                android:textColor="@color/black"
+                                android:textStyle="bold" />
+
+
+
+                        </LinearLayout>
+
+                        <!--qtyfree-->
+
+                        <LinearLayout
+                            android:id="@+id/editqtyfree"
+                            android:layout_width="400dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="5dp"
+                            android:layout_marginBottom="5dp"
+                            android:orientation="horizontal">
+
+
+                            <EditText
+                                android:id="@+id/qtyedit"
+                                android:layout_width="150dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="10dp"
+                                android:layout_marginTop="10dp"
+                                android:background="@drawable/rect_shape"
+                                android:backgroundTint="@color/bg_color"
+                                android:hint="Qty"
+                                android:layout_marginBottom="5dp"
+                                android:padding="10dp"
+                                android:textColor="@color/black"
+                                android:textStyle="bold" />
+                            <EditText
+                                android:id="@+id/freeedit"
+                                android:layout_width="180dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="10dp"
+                                android:layout_marginTop="10dp"
+                                android:layout_marginBottom="5dp"
+                                android:background="@drawable/rect_shape"
+                                android:backgroundTint="@color/bg_color"
+                                android:hint="free"
+                                android:padding="10dp"
+                                android:textColor="@color/black"
+                                android:textStyle="bold" />
+
+
+                        </LinearLayout>
+                    </LinearLayout>
+
+                    <!-- ratee& per -->
+
+                    <LinearLayout
+                        android:id="@+id/rateperlayout"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:orientation="vertical">
+
+                        <LinearLayout
+                            android:id="@+id/rateperlayout1"
+                            android:layout_width="400dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="5dp"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:id="@+id/ratetxt"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:layout_marginStart="10dp"
+                                android:padding="10dp"
+
+                                android:text="Rate"
+                                android:textColor="@color/black"
+                                android:textStyle="bold" />
+
+                            <TextView
+                                android:id="@+id/pertxt"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:layout_marginStart="120dp"
+                                android:padding="10dp"
+
+                                android:text="Per"
+                                android:textColor="@color/black"
+                                android:textStyle="bold" />
+
+
+
+                        </LinearLayout>
+
+                        <!--rateper-->
+
+                        <LinearLayout
+                            android:id="@+id/editrateper"
+                            android:layout_width="400dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="5dp"
+                            android:layout_marginBottom="5dp"
+                            android:orientation="horizontal">
+
+
+                            <EditText
+                                android:id="@+id/rateedit"
+                                android:layout_width="150dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="10dp"
+                                android:layout_marginTop="10dp"
+                                android:background="@drawable/rect_shape"
+                                android:backgroundTint="@color/bg_color"
+                                android:hint="Rate"
+                                android:layout_marginBottom="5dp"
+                                android:padding="10dp"
+                                android:textColor="@color/black"
+                                android:textStyle="bold" />
+                            <EditText
+                                android:id="@+id/peredit"
+                                android:layout_width="180dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="10dp"
+                                android:layout_marginTop="10dp"
+                                android:layout_marginBottom="5dp"
+                                android:background="@drawable/rect_shape"
+                                android:backgroundTint="@color/bg_color"
+                                android:hint="per"
+                                android:padding="10dp"
+                                android:textColor="@color/black"
+                                android:textStyle="bold" />
+
+
+                        </LinearLayout>
+                    </LinearLayout>
+
+                    <!-- BA&DA -->
+
+                    <LinearLayout
+                        android:id="@+id/BADAlayout"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:orientation="vertical">
+
+                        <LinearLayout
+                            android:id="@+id/BADAlayout1"
+                            android:layout_width="400dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="5dp"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:id="@+id/BAtxt"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:layout_marginStart="10dp"
+                                android:padding="10dp"
+
+                                android:text="Basic Amt"
+                                android:textColor="@color/black"
+                                android:textStyle="bold" />
+
+                            <TextView
+                                android:id="@+id/DAtxt"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:layout_marginStart="120dp"
+                                android:padding="10dp"
+
+                                android:text="Disc Amt"
+                                android:textColor="@color/black"
+                                android:textStyle="bold" />
+
+
+
+                        </LinearLayout>
+
+                        <!--rateper-->
+
+                        <LinearLayout
+                            android:id="@+id/editbada"
+                            android:layout_width="400dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="5dp"
+                            android:layout_marginBottom="5dp"
+                            android:orientation="horizontal">
+
+
+                            <EditText
+                                android:id="@+id/baedit"
+                                android:layout_width="150dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="10dp"
+                                android:layout_marginTop="10dp"
+                                android:background="@drawable/rect_shape"
+                                android:backgroundTint="@color/bg_color"
+                                android:hint="Basic Amt"
+                                android:layout_marginBottom="5dp"
+                                android:padding="10dp"
+                                android:textColor="@color/black"
+                                android:textStyle="bold" />
+                            <EditText
+                                android:id="@+id/daedit"
+                                android:layout_width="180dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="10dp"
+                                android:layout_marginTop="10dp"
+                                android:layout_marginBottom="5dp"
+                                android:background="@drawable/rect_shape"
+                                android:backgroundTint="@color/bg_color"
+                                android:hint="Disc Amt"
+                                android:padding="10dp"
+                                android:textColor="@color/black"
+                                android:textStyle="bold" />
+
+
+                        </LinearLayout>
+                    </LinearLayout>
+
+                    <!-- TA & Disc% -->
+
+                    <LinearLayout
+                        android:id="@+id/tadislayout"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:orientation="vertical">
+
+                        <LinearLayout
+                            android:id="@+id/tadislayout1"
+                            android:layout_width="400dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="5dp"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:id="@+id/tatxt"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:layout_marginStart="10dp"
+                                android:padding="10dp"
+
+                                android:text="Tax Amt"
+                                android:textColor="@color/black"
+                                android:textStyle="bold" />
+
+                            <TextView
+                                android:id="@+id/disctxt"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:layout_marginStart="120dp"
+                                android:padding="10dp"
+
+                                android:text="Disc%"
+                                android:textColor="@color/black"
+                                android:textStyle="bold" />
+
+
+
+                        </LinearLayout>
+
+                        <!--rateper-->
+
+                        <LinearLayout
+                            android:id="@+id/edittadisc"
+                            android:layout_width="400dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="5dp"
+                            android:layout_marginBottom="5dp"
+                            android:orientation="horizontal">
+
+
+                            <EditText
+                                android:id="@+id/taedit"
+                                android:layout_width="150dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="10dp"
+                                android:layout_marginTop="10dp"
+                                android:background="@drawable/rect_shape"
+                                android:backgroundTint="@color/bg_color"
+                                android:hint="tax amt"
+                                android:layout_marginBottom="5dp"
+                                android:padding="10dp"
+                                android:textColor="@color/black"
+                                android:textStyle="bold" />
+                            <EditText
+                                android:id="@+id/discedit"
+                                android:layout_width="180dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="10dp"
+                                android:layout_marginTop="10dp"
+                                android:layout_marginBottom="5dp"
+                                android:background="@drawable/rect_shape"
+                                android:backgroundTint="@color/bg_color"
+                                android:hint="disc%"
+                                android:padding="10dp"
+                                android:textColor="@color/black"
+                                android:textStyle="bold" />
+
+
+                        </LinearLayout>
+                    </LinearLayout>
+
+                    <!-- netvalue -->
+
+                    <LinearLayout
+                        android:id="@+id/netvaluelayout"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/netvlauetxt"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+
+                            android:layout_marginStart="10dp"
+                            android:padding="10dp"
+                            android:text="Net Value"
+                            android:textColor="@color/black"
+                            android:textStyle="bold" />
+
+
+
+
+                        <EditText
+                            android:id="@+id/netvalueedit"
+                            android:layout_width="150dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="10dp"
+                            android:layout_marginTop="10dp"
+                            android:background="@drawable/rect_shape"
+                            android:backgroundTint="@color/bg_color"
+                            android:hint="Netvalue"
+                            android:layout_marginBottom="5dp"
+                            android:padding="10dp"
+                            android:textColor="@color/black"
+                            android:textStyle="bold" />
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+
+
+            </androidx.cardview.widget.CardView>
+
+
+        </LinearLayout>
+    </ScrollView>
+
+
+
+
+
+</FrameLayout>
