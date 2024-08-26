@@ -55,6 +55,9 @@ public class AccounviewlistActivity extends AppCompatActivity {
 
         Intent in = getIntent();
         token = in.getStringExtra("token");
+       // Toast.makeText(getApplicationContext(),token,Toast.LENGTH_LONG).show();
+
+
 
 
         getItemALL();

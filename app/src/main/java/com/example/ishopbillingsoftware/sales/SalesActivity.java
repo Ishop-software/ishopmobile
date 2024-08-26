@@ -20,6 +20,8 @@ public class SalesActivity extends AppCompatActivity {
 
     Button save,delete,view;
 
+    public static String token;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -29,6 +31,11 @@ public class SalesActivity extends AppCompatActivity {
         save = findViewById(R.id.savebtn);
         delete = findViewById(R.id.deletebtn);
         view = findViewById(R.id.viewbtn);
+
+        Intent in = getIntent();
+
+        token = in.getStringExtra("token");
+
 
         view.setOnClickListener(new View.OnClickListener() {
             @Override

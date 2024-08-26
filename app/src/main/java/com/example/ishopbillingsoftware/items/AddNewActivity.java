@@ -20,6 +20,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.ishopbillingsoftware.R;
+import com.example.ishopbillingsoftware.homepage.HomePageActivity;
 import com.example.ishopbillingsoftware.server.ApiClient;
 import com.google.gson.Gson;
 
@@ -223,7 +224,7 @@ ImageButton puaddnewButton;
 
 
 
-            Call<APIResponseItem> call = ApiClient.getUserService().addItem(itemadd);
+            Call<APIResponseItem> call = ApiClient.getUserService().addItem(itemadd, HomePageActivity.token);
 
             call.enqueue(new Callback<APIResponseItem>() {
                 @SuppressLint({"SetTextI18n", "SuspiciousIndentation"})
