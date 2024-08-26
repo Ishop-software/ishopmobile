@@ -110,7 +110,7 @@ public class HomeItemsAdapter extends RecyclerView.Adapter<HomeItemsAdapter.View
     private void getItemALL() {
 
         try {
-            Call<APIResponseProductItem> call = ApiClient.getUserService().getAllproductIitem();
+            Call<APIResponseProductItem> call = ApiClient.getUserService().getAllproductIitem(HomePageActivity.token);
 
             call.enqueue(new Callback<APIResponseProductItem>() {
 

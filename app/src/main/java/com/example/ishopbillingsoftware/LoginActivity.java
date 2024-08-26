@@ -17,8 +17,10 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.ishopbillingsoftware.homepage.HomePageActivity;
-import com.example.ishopbillingsoftware.server.APIResponseLogin;
+import com.example.ishopbillingsoftware.server.App;
+import com.example.ishopbillingsoftware.server.UserService;
 import com.example.ishopbillingsoftware.server.ApiClient;
+import com.example.ishopbillingsoftware.server.APIResponseLogin;
 
 import java.util.HashMap;
 import java.util.Objects;
@@ -32,7 +34,7 @@ import retrofit2.Response;
 public class LoginActivity extends AppCompatActivity {
 
     EditText passwordtxt,emailtxt;
-    String email,password,userId;
+    String email,password,userId,isfirstlogin;
     Button login_btn;
     TextView forgot_password,reg;
     Boolean valid_email,
@@ -56,6 +58,7 @@ public class LoginActivity extends AppCompatActivity {
         getWindow().setStatusBarColor(getResources().getColor(R.color.btn_color));
         Intent in = getIntent();
         userId =  in.getStringExtra("userId");
+        isfirstlogin=in.getStringExtra("isfirstlogin");
 
         login_btn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -152,7 +155,7 @@ public class LoginActivity extends AppCompatActivity {
 
             System.out.print(" userreg"+ loginreg);
 
-
+            //UserService service =ApiClient.getClient(receivedData1).create(UserService.class);
             Call<APIResponseLogin> call = ApiClient.getUserService().userLogin(loginreg);
 
             call.enqueue(new Callback<APIResponseLogin>() {

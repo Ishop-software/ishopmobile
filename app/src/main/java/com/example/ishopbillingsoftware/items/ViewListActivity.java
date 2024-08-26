@@ -14,6 +14,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.ishopbillingsoftware.R;
+import com.example.ishopbillingsoftware.homepage.HomePageActivity;
 import com.example.ishopbillingsoftware.server.ApiClient;
 
 import java.util.ArrayList;
@@ -63,7 +64,7 @@ public class ViewListActivity extends AppCompatActivity {
     private void getItemALL() {
 
         try {
-            Call<APIResponseProductItem> call = ApiClient.getUserService().getAllproductIitem();
+            Call<APIResponseProductItem> call = ApiClient.getUserService().getAllproductIitem(HomePageActivity.token);
 
             call.enqueue(new Callback<APIResponseProductItem>() {
 

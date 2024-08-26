@@ -17,8 +17,9 @@ import androidx.annotation.NonNull;
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.ishopbillingsoftware.server.APIResponse;
+
 import com.example.ishopbillingsoftware.server.ApiClient;
+import com.example.ishopbillingsoftware.server.UserService;
 
 import java.util.HashMap;
 import java.util.Objects;
@@ -28,6 +29,7 @@ import java.util.regex.Pattern;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
+
 
 public class RegisterActivity extends AppCompatActivity {
 
@@ -96,7 +98,7 @@ public class RegisterActivity extends AppCompatActivity {
 
 
 
-    private Boolean registerValidationCheck() {
+    private void registerValidationCheck() {
         name = usernametxt.getText().toString();
         companyname = companytxt.getText().toString();
         password = passwordtxt.getText().toString();
@@ -107,26 +109,24 @@ public class RegisterActivity extends AppCompatActivity {
         if (name == null || name.isEmpty() || name.equals("null")) {
             Toast.makeText(getApplicationContext(), "Please enter your name",
                     Toast.LENGTH_LONG).show();
-            return false;
+            return;
         } if (companyname == null || companyname.isEmpty() || companyname.equals("null")) {
             Toast.makeText(getApplicationContext(), "Please enter your company name",
                     Toast.LENGTH_LONG).show();
-            return false;
+            return;
         }
         else if (mobile == null || mobile.isEmpty() || mobile.equals("null") || mobile.length() != 10) {
             Toast.makeText(getApplicationContext(), "Please enter your mobile no",
                     Toast.LENGTH_LONG).show();
-            return false;
+            return;
         } else if (email == null || email.isEmpty()) {
             Toast.makeText(getApplicationContext(), "Please enter your email id",
                     Toast.LENGTH_LONG).show();
-            return false;
+            return;
         }
         if (!valid_email) {
             emailtxt.setError("Please enter your valid email id");
-            return false;
         }else {
-            return true;
         }
     }
 
@@ -172,7 +172,8 @@ public class RegisterActivity extends AppCompatActivity {
             System.out.print(" userreg"+user);
 
 
-            Call<APIResponse> call = ApiClient.getUserService().userReg(user);
+            UserService service =ApiClient.getUserService();
+            Call<APIResponse> call = service.userReg(user);
 
             call.enqueue(new Callback<APIResponse>() {
                 @SuppressLint({"SetTextI18n", "SuspiciousIndentation"})
@@ -191,8 +192,9 @@ public class RegisterActivity extends AppCompatActivity {
 
                             String message = apiResponse.getMessage();
                             String userId = apiResponse.getUserId();
+                            String isfirstlogin = apiResponse.getIsFirstLogin();
                             System.out.print("userId"+ password);
-                            Toast.makeText(getApplicationContext(),message,Toast.LENGTH_LONG).show();
+                           // Toast.makeText(getApplicationContext(),message,Toast.LENGTH_LONG).show();
 
                             usernametxt.setText("");
                             passwordtxt.setText("");
@@ -202,6 +204,7 @@ public class RegisterActivity extends AppCompatActivity {
 
                             Intent in  = new Intent(getApplicationContext(), LoginActivity.class);
                             in.putExtra("userId",userId);
+                            in.putExtra("isfirstlogin",isfirstlogin);
                             startActivity(in);
 
                         }else{
