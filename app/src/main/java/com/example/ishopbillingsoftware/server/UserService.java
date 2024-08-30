@@ -6,6 +6,7 @@ import com.example.ishopbillingsoftware.accounts.APIResponseData;
 import com.example.ishopbillingsoftware.items.APIResponseItem;
 import com.example.ishopbillingsoftware.items.APIResponseProductItem;
 import com.example.ishopbillingsoftware.items.APIResponseUpdate;
+import com.example.ishopbillingsoftware.sales.APIResponseSale;
 
 import java.util.HashMap;
 
@@ -61,5 +62,9 @@ public interface UserService {
     @Headers({"Content-Type: application/json;charset=UTF-8"})
     @POST("api/users/updateAccountDetails")
     Call<APIResponseUpdate> accountupdate (@Body HashMap<String, String> fields);
+
+    @Headers({"Content-Type: application/json;charset=UTF-8"})
+    @POST("api/usersales/addSalesRegister")
+    Call<APIResponseSale> addsale(@Body HashMap<String, Object> fields);
 
 }
