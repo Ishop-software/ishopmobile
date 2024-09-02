@@ -79,7 +79,7 @@
                             android:padding="10dp" />
 
                         <ImageButton
-                            android:id="@+id/addnew"
+                            android:id="@+id/addnewbtn"
                             android:layout_width="wrap_content"
                             android:layout_height="50dp"
                             android:layout_gravity="center"
@@ -88,7 +88,7 @@
                             android:src="@drawable/add_circle_icon" />
 
                         <ImageButton
-                            android:id="@+id/edit"
+                            android:id="@+id/editbtn"
                             android:layout_width="wrap_content"
                             android:layout_height="50dp"
                             android:layout_gravity="center"
@@ -148,7 +148,7 @@
 
 
                     <TextView
-                        android:id="@+id/andtxt"
+                        android:id="@+id/discounttxt"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="10dp"
@@ -159,14 +159,14 @@
                         android:textStyle="bold" />
 
                     <EditText
-                        android:id="@+id/andedit"
+                        android:id="@+id/discountedit"
                         android:layout_width="300dp"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="10dp"
                         android:layout_marginTop="10dp"
                         android:background="@drawable/rect_shape"
                         android:backgroundTint="@color/bg_color"
-                        android:hint="and"
+                        android:hint="discount"
                         android:padding="10dp"
                         android:textColor="@color/black"
                         android:textStyle="bold" />

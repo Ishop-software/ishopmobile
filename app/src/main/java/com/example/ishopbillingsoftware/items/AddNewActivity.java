@@ -36,8 +36,10 @@ public class AddNewActivity extends AppCompatActivity   {
 
 
     String[] tax = { "Tax 0.5%", "Tax 12.5%",
-            "Tax 28%", "Tax 3%","No Tax",
+            "Tax 18%", "Tax 3%","No Tax",
            };
+    
+    
     String[] altstring = { "Tax 0.5%", "Tax 12.5%",
             "Tax 28%", "Tax 3%",
     };

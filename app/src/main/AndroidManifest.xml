@@ -6,7 +6,6 @@
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
 
-
     <application
         android:name=".server.App"
         android:allowBackup="true"
@@ -21,11 +20,17 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
         <activity
+            android:name=".printdesign.Salesprint1Activity"
+            android:exported="false" />
+        <activity
+            android:name=".sales.ChargesViewListActivity"
+            android:exported="false" />
+        <activity
+            android:name=".sales.AddNewChargesActivity"
+            android:exported="false" />
+        <activity
             android:name=".MainActivity"
-            android:exported="true">
-
-        </activity>
-
+            android:exported="true" />
         <activity
             android:name=".accounts.AccountEditListActivity"
             android:exported="false" />
@@ -46,9 +51,7 @@
             android:exported="false" />
         <activity
             android:name=".sales.SalesActivity"
-            android:exported="false">
-
-        </activity>
+            android:exported="false" />
         <activity
             android:name=".items.ProductItemDetailsActivity"
             android:exported="false" />
@@ -82,13 +85,12 @@
             android:exported="false" />
         <activity
             android:name=".LoginActivity"
-            android:exported="true" >
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
 
-        <intent-filter>
-            <action android:name="android.intent.action.MAIN" />
-
-            <category android:name="android.intent.category.LAUNCHER" />
-        </intent-filter>
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
         <activity
             android:name=".ActivationActivity"

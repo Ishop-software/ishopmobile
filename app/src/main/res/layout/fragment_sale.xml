@@ -38,6 +38,18 @@
 
             </LinearLayout>
 
+            <Spinner
+                android:id="@+id/taxspinner"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="10dp"
+                android:layout_marginBottom="10dp"
+                android:layout_weight="1"
+                android:background="@drawable/spinner_bg"
+                android:padding="10dp" />
+
             <!--party-->
 
             <androidx.cardview.widget.CardView
@@ -374,6 +386,7 @@
                                 android:background="@drawable/rect_shape"
                                 android:backgroundTint="@color/bg_color"
                                 android:hint="Qty"
+                                android:imeOptions="actionNext"
                                 android:layout_marginBottom="5dp"
                                 android:padding="10dp"
                                 android:textColor="@color/black"
@@ -482,7 +495,7 @@
                         </LinearLayout>
                     </LinearLayout>
 
-                    <!-- BA&DA -->
+                    <!-- BA&TA -->
 
                     <LinearLayout
                         android:id="@+id/BADAlayout"
@@ -511,14 +524,14 @@
                                 android:textStyle="bold" />
 
                             <TextView
-                                android:id="@+id/DAtxt"
+                                android:id="@+id/TAtxt"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_gravity="center"
                                 android:layout_marginStart="120dp"
                                 android:padding="10dp"
 
-                                android:text="Disc Amt"
+                                android:text="Tax Amt"
                                 android:textColor="@color/black"
                                 android:textStyle="bold" />
 
@@ -527,7 +540,7 @@
 
                         </LinearLayout>
 
-                        <!--rateper-->
+                        <!--BATA-->
 
                         <LinearLayout
                             android:id="@+id/editbada"
@@ -551,8 +564,9 @@
                                 android:padding="10dp"
                                 android:textColor="@color/black"
                                 android:textStyle="bold" />
+
                             <EditText
-                                android:id="@+id/daedit"
+                                android:id="@+id/taxamountedit"
                                 android:layout_width="180dp"
                                 android:layout_height="wrap_content"
                                 android:layout_marginStart="10dp"
@@ -560,7 +574,7 @@
                                 android:layout_marginBottom="5dp"
                                 android:background="@drawable/rect_shape"
                                 android:backgroundTint="@color/bg_color"
-                                android:hint="Disc Amt"
+                                android:hint="Tax Amt"
                                 android:padding="10dp"
                                 android:textColor="@color/black"
                                 android:textStyle="bold" />
@@ -569,7 +583,7 @@
                         </LinearLayout>
                     </LinearLayout>
 
-                    <!-- TA & Disc% -->
+                    <!-- Discamount & Disc% -->
 
                     <LinearLayout
                         android:id="@+id/tadislayout"
@@ -586,26 +600,26 @@
                             android:orientation="horizontal">
 
                             <TextView
-                                android:id="@+id/tatxt"
+                                android:id="@+id/discpertxt"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_gravity="center"
                                 android:layout_marginStart="10dp"
                                 android:padding="10dp"
 
-                                android:text="Tax Amt"
+                                android:text="Disc %"
                                 android:textColor="@color/black"
                                 android:textStyle="bold" />
 
                             <TextView
-                                android:id="@+id/disctxt"
+                                android:id="@+id/discamounttxt"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_gravity="center"
                                 android:layout_marginStart="120dp"
                                 android:padding="10dp"
 
-                                android:text="Disc%"
+                                android:text="Disc Amount"
                                 android:textColor="@color/black"
                                 android:textStyle="bold" />
 
@@ -625,20 +639,20 @@
 
 
                             <EditText
-                                android:id="@+id/taedit"
+                                android:id="@+id/discperedit"
                                 android:layout_width="150dp"
                                 android:layout_height="wrap_content"
                                 android:layout_marginStart="10dp"
                                 android:layout_marginTop="10dp"
                                 android:background="@drawable/rect_shape"
                                 android:backgroundTint="@color/bg_color"
-                                android:hint="tax amt"
+                                android:hint="disc %"
                                 android:layout_marginBottom="5dp"
                                 android:padding="10dp"
                                 android:textColor="@color/black"
                                 android:textStyle="bold" />
                             <EditText
-                                android:id="@+id/discedit"
+                                android:id="@+id/discamountedit"
                                 android:layout_width="180dp"
                                 android:layout_height="wrap_content"
                                 android:layout_marginStart="10dp"
@@ -646,7 +660,7 @@
                                 android:layout_marginBottom="5dp"
                                 android:background="@drawable/rect_shape"
                                 android:backgroundTint="@color/bg_color"
-                                android:hint="disc%"
+                                android:hint="disc amount"
                                 android:padding="10dp"
                                 android:textColor="@color/black"
                                 android:textStyle="bold" />
