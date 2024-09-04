@@ -82,13 +82,10 @@ public class ChargesFragment extends Fragment {
         totalamounttxt1 = view.findViewById(R.id.totalamounttxt1);
         amountedit = view.findViewById(R.id.amountedit);
 
-
         ocspinner = view.findViewById(R.id.ocspinner);
         addnewbtn = view.findViewById(R.id.addnewbtn);
-
         editbtn = view.findViewById(R.id.editbtn);
         ocname = "ocname";
-
 
 
 
@@ -96,16 +93,23 @@ public class ChargesFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(getActivity(), AddNewChargesActivity.class);
+                assert getActivity() != null;
                 getActivity().startActivity(intent);
             }
         });
         editbtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
                 Intent intent = new Intent(getActivity(), AddNewChargesActivity.class);
+                assert getActivity() != null;
                 getActivity().startActivity(intent);
+
             }
         });
+
+
+
        /* ArrayAdapter ad1 = new ArrayAdapter(getActivity(), android.R.layout.simple_spinner_item,itemlist);
 
         // set simple layout resource file

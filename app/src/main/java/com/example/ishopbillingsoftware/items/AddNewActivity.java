@@ -232,10 +232,8 @@ ImageButton puaddnewButton;
                 @SuppressLint({"SetTextI18n", "SuspiciousIndentation"})
                 @Override
                 public void onResponse(@NonNull Call<APIResponseItem> call, @NonNull Response<APIResponseItem> response) {
-
-
-
-                    if(response.isSuccessful()){
+                     System.out.print("response"+response.toString());
+                     if(response.isSuccessful()){
                        APIResponseItem apiResponse = response.body();
                         assert apiResponse != null;
                         String success = apiResponse.getSuccess();

@@ -1,13 +1,16 @@
 package com.example.ishopbillingsoftware.items;
 
 import android.annotation.SuppressLint;
+import android.content.DialogInterface;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.CheckBox;
 import android.widget.ImageButton;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.SearchView;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -33,10 +36,12 @@ public class ViewListActivity extends AppCompatActivity {
 
     SearchView searchView;
     ViewListAdapter adapter;
+    CheckBox itemname,billno,rate;
 
     private List<ProductItem> originalProductList;
 
     ImageButton filterbtn;
+    String message;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,10 +58,79 @@ public class ViewListActivity extends AppCompatActivity {
         filterbtn = (ImageButton) findViewById(R.id.filterbtn);
         filterbtn.setVisibility(View.GONE);
 
-        getItemALL();
-        search();
+      filterbtn.setOnClickListener(new View.OnClickListener() {
+          @Override
+          public void onClick(View v) {
+              AlertDialog.Builder alertDialog = new AlertDialog.Builder(ViewListActivity.this);
+              alertDialog.setTitle("Filter");
+              String[] items = {"Item Name","Bill No","Rate"};
+              boolean[] checkedItems = {false, false, false, false, false,false};
+              alertDialog.setMultiChoiceItems(items, checkedItems, new DialogInterface.OnMultiChoiceClickListener() {
+                  @Override
+                  public void onClick(DialogInterface dialog, int which, boolean isChecked) {
+                      switch (which) {
+                          case 0:
+                              if(isChecked)
+                                  message = "itemname";
+                                  //Toast.makeText(ViewListActivity.this, "Clicked on java", Toast.LENGTH_LONG).show();
+                              break;
+                          case 1:
+                              if(isChecked)
+                                  message = "billno";
+                                  //Toast.makeText(ViewListActivity.this, "Clicked on android", Toast.LENGTH_LONG).show();
+                              break;
+                          case 2:
+                              if(isChecked)
+                                  message = "rate";
+                                  //Toast.makeText(ViewListActivity.this, "Clicked on Data Structures", Toast.LENGTH_LONG).show();
+                              break;
+
+                      }
+                  }
+              });
+              AlertDialog alert = alertDialog.create();
+              alert.setCanceledOnTouchOutside(true);
+              alert.show();
+
+            //  filtersearch(message);
+          }
+      });
 
 
+
+
+            getItemALL();
+
+            search();
+
+
+
+        }
+
+
+
+
+    public void Check(View v)
+    {
+        String msg="";
+
+        // Concatenation of the checked options in if
+
+        // isChecked() is used to check whether
+        // the CheckBox is in true state or not.
+
+        if(itemname.isChecked())
+            msg = msg + " Item Name ";
+        if(billno.isChecked())
+            msg = msg + " Bill No ";
+        if(rate.isChecked())
+            msg = msg + " Rate ";
+
+
+        // Toast is created to display the
+        // message using show() method.
+        Toast.makeText(this, msg + "are selected",
+                Toast.LENGTH_LONG).show();
     }
 
 
@@ -129,6 +203,10 @@ public class ViewListActivity extends AppCompatActivity {
                 boolean found = false;
                 for (ProductItem item : productItems) {
                     if (item.getItemName().toLowerCase().contains(lowerCaseQuery)) {
+                        found = true;
+                        break;
+                    }
+                   else  if (item.getShortName().toLowerCase().contains(lowerCaseQuery)){
                         found = true;
                         break;
                     }

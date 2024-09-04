@@ -11,6 +11,7 @@ import android.widget.Spinner;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 
@@ -29,7 +30,7 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 public class AccountActivity extends AppCompatActivity {
-Button savebtn,deletebtn,viewbtn;
+Button savebtn,deletebtn,viewbtn,addnewbtn;
 EditText nameedit,taxnoedit,addresedit,pincodeedit,codeedit,mobileedit,
         phoneedit,emailedit,cpdit,pancardnoedit,openingbaledit;
 Spinner printasspinner,groupspinner,undergroupspinner,statespinner,
@@ -67,9 +68,10 @@ String  printas,group,undergroup,state,
         statespinner = findViewById(R.id.statespinner);
         drcrspinner = findViewById(R.id.drcrspinner);//
 
-        savebtn = findViewById(R.id.savebtn);
-        deletebtn = findViewById(R.id.deletebtn);
-        viewbtn = findViewById(R.id.viewbtn);
+       // savebtn = findViewById(R.id.savebtn);
+       // deletebtn = findViewById(R.id.deletebtn);
+        //viewbtn = findViewById(R.id.viewbtn);
+        addnewbtn = findViewById(R.id.addnewbtn);
 
 
         Intent in = getIntent();
@@ -100,6 +102,37 @@ String  printas,group,undergroup,state,
 
             }
         });
+
+        addnewbtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Create an alert builder
+                AlertDialog.Builder builder = new AlertDialog.Builder(AccountActivity.this);
+                builder.setTitle("Account Group Entry");
+
+                // set the custom layout
+                final View customLayout = getLayoutInflater().inflate(R.layout.custom_layout, null);
+                builder.setView(customLayout);
+
+                // add a button
+                builder.setPositiveButton("Save", (dialog, which) -> {
+                    // send data from the AlertDialog to the Activity
+                    EditText editText = customLayout.findViewById(R.id.groupnameedit);
+                    EditText editText1 = customLayout.findViewById(R.id.undergroupedit);
+                    String groupname = editText.getText().toString();
+                    String undergroupname = editText1.getText().toString();
+                    sendDialogDataToActivity(groupname,undergroupname);
+                });
+                // create and show the alert dialog
+                AlertDialog dialog = builder.create();
+                dialog.show();
+            }
+        });
+    }
+
+    private void sendDialogDataToActivity(String groupname, String undergroupname) {
+
+
     }
 
     private void getsave() {
@@ -119,11 +152,7 @@ String  printas,group,undergroup,state,
             add.put("email", emailedit.getText().toString());
             add.put( "contactPerson", cpdit.getText().toString());
             add.put("panCardNo",pancardnoedit.getText().toString());
-
             System.out.print("itemadd"+add);
-
-
-
 
             Call<APIResponseUpdate> call = ApiClient.getUserService().create(add);
 

@@ -1,5 +1,4 @@
 <resources>
-
     <string name="app_name">ISHOP</string>
     <string name="login">LOGIN</string>
     <string name="don_t_have_an_account_create_new_one">Don\'t have an account! create new one..</string>
@@ -12,10 +11,9 @@
     <string name="enter_your_mobile_no">Enter your Mobile_no</string>
     <string name="activation">Check Activation</string>
     <string name="enter_your_code">Enter your code</string>
-    <string name="api_base_url">http://192.168.1.7:5000/</string>
+    <string name="api_base_url">http://192.168.1.15:5000/</string>
     <string name="navigation_open">Open Navigation Drawer</string>
     <string name="navigation_close">Close Navigation Drawer</string>
     <string name="hello_blank_fragment">Hello blank fragment</string>
-
 
 </resources>
