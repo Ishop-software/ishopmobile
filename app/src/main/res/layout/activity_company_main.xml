@@ -25,6 +25,65 @@
         </androidx.appcompat.widget.Toolbar>
     </com.google.android.material.appbar.AppBarLayout>
 
+    <LinearLayout
+        android:layout_width="409dp"
+        android:layout_height="673dp"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/appBarLayout">
+
+
+        <LinearLayout
+            android:layout_width="300dp"
+            android:layout_height="75dp"
+            android:layout_marginStart="10dp"
+            android:background="@color/btn_color"
+            android:layout_marginTop="10dp"
+            android:orientation="horizontal">
+            <ImageButton
+                android:id="@+id/leftarrow"
+                android:layout_width="30dp"
+                android:layout_height="40dp"
+                android:layout_marginStart="10dp"
+                android:layout_gravity="center"
+                android:backgroundTint="@color/btn_color"
+                android:src="@drawable/arrow_left_icon" />
+
+            <TextView
+                android:id="@+id/calenderlayout"
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:background="@drawable/et_style"
+                android:textSize="18sp"
+                android:textColor="@color/black"
+                android:textStyle="bold"
+
+                android:layout_marginStart="10dp"
+                android:padding="10dp"
+                android:text="Mar 2023 - Apr 2024" />
+            <ImageButton
+                android:id="@+id/rightarrow"
+                android:layout_width="30dp"
+                android:layout_height="40dp"
+                android:layout_marginStart="10dp"
+                android:layout_gravity="center"
+                android:backgroundTint="@color/btn_color"
+                android:src="@drawable/ic_arrow_right" />
+        </LinearLayout>
+
+        <ImageButton
+            android:id="@+id/imageButton3"
+            android:layout_width="60dp"
+            android:layout_height="50dp"
+
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="20dp"
+            android:backgroundTint="@color/white"
+            android:src="@drawable/calendar" />
+    </LinearLayout>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
