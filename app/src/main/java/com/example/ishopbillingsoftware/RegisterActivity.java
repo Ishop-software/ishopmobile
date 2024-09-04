@@ -164,7 +164,7 @@ public class RegisterActivity extends AppCompatActivity {
             user.put("mobileNo", "+91"+mobile);
             user.put("email", email);
             user.put("password", password);
-            user.put("isFirstLogin", false);
+           // user.put("isFirstLogin", false);
             user.put("subscription", subscription);
 
 

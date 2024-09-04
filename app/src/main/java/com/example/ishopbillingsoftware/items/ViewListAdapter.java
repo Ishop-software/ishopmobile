@@ -194,6 +194,10 @@ public class ViewListAdapter extends RecyclerView.Adapter<ViewListAdapter.Viewho
                     if (product.getItemName().toLowerCase().contains(filterPattern)) {
                         filteredList.add(product);
                     }
+                    else  if (product.getShortName().toLowerCase().contains(filterPattern)){
+                        filteredList.add(product);
+                        //break;
+                    }
                 }
             }
 
@@ -211,6 +215,7 @@ public class ViewListAdapter extends RecyclerView.Adapter<ViewListAdapter.Viewho
             }
             notifyDataSetChanged();
         }
+
     };
     // View holder class for initializing of your views such as TextView and Imageview
     public static class Viewholder extends RecyclerView.ViewHolder {

@@ -265,8 +265,6 @@ public class SaleFragment extends Fragment {
                                     // having the list of courses
 
                                 }
-
-                                assert getActivity() != null;
                                 ArrayAdapter ad1 = new ArrayAdapter(getActivity(), android.R.layout.simple_spinner_item,itemlist);
 
                                 // set simple layout resource file
