@@ -19,9 +19,7 @@
         android:theme="@style/Theme.IshopBillingSoftware"
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
-        <activity
-            android:name=".sales.otherChargesViewListActivity"
-            android:exported="false" />
+
         <activity
             android:name=".company.CreatenewcompanyActivity"
             android:exported="false" />
