@@ -20,6 +20,12 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
         <activity
+            android:name=".sales.otherChargesViewListActivity"
+            android:exported="false" />
+        <activity
+            android:name=".company.CreatenewcompanyActivity"
+            android:exported="false" />
+        <activity
             android:name=".company.CompanyMainActivity"
             android:exported="false" />
         <activity
@@ -54,7 +60,7 @@
             android:exported="false" />
         <activity
             android:name=".sales.SalesActivity"
-            android:exported="false" />
+            android:exported="false"></activity>
         <activity
             android:name=".items.ProductItemDetailsActivity"
             android:exported="false" />
@@ -67,7 +73,8 @@
             android:exported="false" />
         <activity
             android:name=".items.AddNewActivity"
-            android:exported="false" />
+            android:exported="false"
+            android:windowSoftInputMode="stateHidden|adjustResize" />
         <activity
             android:name=".homepage.JournalActivity"
             android:exported="false" />

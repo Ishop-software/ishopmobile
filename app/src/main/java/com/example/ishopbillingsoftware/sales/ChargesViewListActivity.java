@@ -1,24 +1,43 @@
 package com.example.ishopbillingsoftware.sales;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.ishopbillingsoftware.R;
+import com.example.ishopbillingsoftware.homepage.HomePageActivity;
 import com.example.ishopbillingsoftware.items.ViewListActivity;
+import com.example.ishopbillingsoftware.items.ViewListAdapter;
+import com.example.ishopbillingsoftware.server.ApiClient;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Objects;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class ChargesViewListActivity extends AppCompatActivity {
     String account,plusminus,inputas,applyon,calculate,ro,slab,hsn;
     Double purchase,sale,mrp;
     int tax;
-    TextView accounttxt,plusminustxt,inputastxt,applyontxt,calculatetxt,rotxt,taxtxt,
-            slabtxt,hsntxt;
-    Button viewbtn;
+
+    List<ChargesList> chargesLists;
+    RecyclerView otherchargesrecyclerview;
+    OtherchargesAdapter otherchargesAdapter;
+    public static String taxslab,hsncode,taxapplicable;
     @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,54 +48,74 @@ public class ChargesViewListActivity extends AppCompatActivity {
         getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_LIGHT_NAVIGATION_BAR);
         getWindow().setStatusBarColor(getResources().getColor(R.color.btn_color));
 
+        otherchargesrecyclerview = findViewById(R.id.otherchargesrecyclerview);
 
-        accounttxt = findViewById(R.id.accounttxt);
-        plusminustxt = findViewById(R.id.plusminustxt);
-        inputastxt = findViewById(R.id.inputastxt);
-        applyontxt = findViewById(R.id.applyontxt);
-        calculatetxt = findViewById(R.id.calculatetxt);
-        rotxt = findViewById(R.id.rotxt);
-        taxtxt = findViewById(R.id.taxtxt);
-        slabtxt = findViewById(R.id.slabtxt);
-        hsntxt = findViewById(R.id.hsntxt);
 
-        viewbtn = findViewById(R.id.viewbtn);
 
-        Intent in = getIntent();
-        account = in.getStringExtra("itemname");
-        plusminus= in.getStringExtra("shortname");
-        inputas = in.getStringExtra("hsccode");
-        tax = in.getIntExtra("tax",0);
-        calculate=in.getStringExtra("company");
-        applyon=in.getStringExtra("group");
-        ro= in.getStringExtra("purchase");
-        slab = in.getStringExtra("sale");
-        hsn = in.getStringExtra("mrp");
+
+        getAllotherchargeslist();
+
+
+
 
 
         // System.out.print("tax "+ in.getIntExtra("taxSlab",0));
 
-        accounttxt.setText( "Account:"+ account);
-        plusminustxt.setText("+/-:"+ plusminus);
-        inputastxt.setText("Input As:"+ inputas);
-        applyontxt.setText("Apply on:"+ applyon);
-        calculatetxt.setText("Calculate Discount:"+ calculate);
-        rotxt.setText("RO:"+ ro);
-        taxtxt.setText("Tax:"+tax);
-        slabtxt.setText("Slab"+ slab);
-        hsntxt.setText("HSN"+ hsn);
 
 
 
+    }
 
-        viewbtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(), ViewListActivity.class);
-                startActivity(intent);
-            }
-        });
+    private void getAllotherchargeslist() {
+        try{
 
 
+            Call<APIResponseChargesList> call = ApiClient.getUserService().viewlistcharge();
+
+            call.enqueue(new Callback<APIResponseChargesList>() {
+                @SuppressLint({"SetTextI18n", "SuspiciousIndentation"})
+                @Override
+                public void onResponse(@NonNull Call<APIResponseChargesList> call, @NonNull Response<APIResponseChargesList> response) {
+                    System.out.print("response"+response.toString());
+                    if(response.isSuccessful()){
+                        APIResponseChargesList apiResponse = response.body();
+                        assert apiResponse != null;
+                        String success = apiResponse.getSuccess();
+                        chargesLists = new ArrayList<>();
+                         chargesLists = apiResponse.getMessage();
+
+
+                        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getApplicationContext());
+                        otherchargesrecyclerview.setLayoutManager(linearLayoutManager);
+
+
+                        otherchargesAdapter = new OtherchargesAdapter(ChargesViewListActivity.this,
+                                chargesLists,otherchargesAdapter);
+
+
+                        // Setting Adapter to RecyclerView
+                        otherchargesrecyclerview.setAdapter(otherchargesAdapter);
+
+
+                        Toast.makeText(getApplicationContext(),success,Toast.LENGTH_LONG).show();
+
+
+                    }else{
+
+                        Toast.makeText(getApplicationContext(),"message",Toast.LENGTH_LONG).show();
+
+                    }
+
+                }
+
+                @Override
+                public void onFailure(@NonNull Call<APIResponseChargesList> call, @NonNull Throwable t) {
+                    Log.e("getUTL failure", Objects.requireNonNull(t.getLocalizedMessage()));
+                    Toast.makeText(getApplicationContext(), "Server Error Occured!!! Please Retry after some time", Toast.LENGTH_LONG).show();
+                }
+            });
+        }catch(Exception e){
+            System.out.print("error"+e.toString());
+        }
     }
 }

@@ -404,17 +404,119 @@
                                 android:textAlignment="center"
                                 android:textSize="20sp" />
 
-                            <CheckBox
-                                android:id="@+id/checkBox3"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:text="CheckBox" />
+
                         </RadioGroup>
                     </LinearLayout>
 
 
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
+
+
+            <TextView
+                android:id="@+id/tofctxt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:padding="10dp"
+                android:text="Types of Charges"
+                android:textColor="@color/btn_color"
+                android:textStyle="bold" />
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/toccard"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="10dp"
+                android:layout_marginBottom="10dp"
+                android:background="@drawable/et_style">
+
+                <LinearLayout
+                    android:id="@+id/toclayout1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginBottom="20dp"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/applyontxt"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="10dp"
+                        android:padding="10dp"
+                        android:text="Apply On"
+                        android:textColor="@color/black"
+                        android:textStyle="bold" />
+
+
+                    <EditText
+                        android:id="@+id/applyonedit"
+                        android:layout_width="300dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginTop="10dp"
+                        android:background="@drawable/rect_shape"
+                        android:backgroundTint="@color/bg_color"
+                        android:padding="10dp"
+                        android:textColor="@color/black"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/percentageof"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="10dp"
+                        android:padding="10dp"
+                        android:text="Percentage Of"
+                        android:textColor="@color/black"
+                        android:textStyle="bold" />
+
+                    <Spinner
+                        android:id="@+id/percentageofspinner"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginEnd="10dp"
+                        android:layout_marginBottom="10dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/spinner_bg"
+                        android:padding="10dp" />
+
+                    <TextView
+                        android:id="@+id/calculatetxt"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="10dp"
+                        android:padding="10dp"
+                        android:text="Calculate Discount"
+                        android:textColor="@color/black"
+                        android:textStyle="bold" />
+
+
+                    <EditText
+                        android:id="@+id/calculateedit"
+                        android:layout_width="300dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginTop="10dp"
+                        android:background="@drawable/rect_shape"
+                        android:backgroundTint="@color/bg_color"
+                        android:padding="10dp"
+                        android:textColor="@color/black"
+                        android:textStyle="bold" />
+
+                    <CheckBox
+                        android:id="@+id/roundoff"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Round off amount of charges" />
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
 
 
             <!--taxsetting-->

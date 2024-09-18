@@ -52,7 +52,7 @@ public class AccountEditListActivity extends AppCompatActivity {
         cpdit = findViewById(R.id.cpedit);
         pancardnoedit = findViewById(R.id.pancardnoedit);
         savebtn = findViewById(R.id.updatebtn);
-        deletebtn = findViewById(R.id.deletebtn);
+
         viewbtn = findViewById(R.id.viewbtn);
         printasedit = findViewById(R.id.printasedit);
         cityedit = findViewById(R.id.cityedit);
@@ -113,12 +113,7 @@ public class AccountEditListActivity extends AppCompatActivity {
                 getupdate();
             }
         });
-        deletebtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
 
-            }
-        });
         viewbtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -128,6 +123,8 @@ public class AccountEditListActivity extends AppCompatActivity {
 
             }
         });
+
+
     }
 
     private void getupdate() {

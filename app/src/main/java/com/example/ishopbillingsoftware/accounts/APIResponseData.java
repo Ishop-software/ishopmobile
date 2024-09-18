@@ -5,10 +5,10 @@ import java.util.List;
 public class APIResponseData {
     private String success;
 
-    private List<AccountList> data;
+    private List<Data> data;
 
 
-    public APIResponseData(String success, List<AccountList> data) {
+    public APIResponseData(String success, List<Data> data) {
         this.success = success;
         this.data = data;
     }
@@ -21,11 +21,11 @@ public class APIResponseData {
         this.success = success;
     }
 
-    public List<AccountList> getData() {
+    public List<Data> getData() {
         return data;
     }
 
-    public void setData(List<AccountList> data) {
+    public void setData(List<Data> data) {
         this.data = data;
     }
 }

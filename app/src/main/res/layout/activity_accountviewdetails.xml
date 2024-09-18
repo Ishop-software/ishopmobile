@@ -128,9 +128,16 @@
                         android:textSize="18sp"
                         android:textColor="@color/black"
                         android:textStyle="bold" />
-
-
-
+                    <TextView
+                        android:id="@+id/printastxt"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="10dp"
+                        android:padding="10dp"
+                        android:text="Print AS"
+                        android:textSize="18sp"
+                        android:textColor="@color/black"
+                        android:textStyle="bold" />
 
                     <TextView
                         android:id="@+id/grouptxt"
@@ -140,41 +147,6 @@
                         android:layout_marginTop="10dp"
                         android:padding="10dp"
                         android:text="Group"
-                        android:textColor="@color/black"
-                        android:textStyle="bold" />
-
-
-
-
-                    <TextView
-                        android:id="@+id/citytxt"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="10dp"
-                        android:layout_marginTop="10dp"
-                        android:padding="10dp"
-                        android:text="City"
-                        android:textColor="@color/black"
-                        android:textStyle="bold" />
-                    <TextView
-                        android:id="@+id/mobiletxt"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="10dp"
-                        android:padding="10dp"
-                        android:layout_marginTop="10dp"
-                        android:text="Mobile No"
-                        android:textColor="@color/black"
-                        android:textStyle="bold" />
-
-                    <TextView
-                        android:id="@+id/taxnotxt"
-                        android:layout_width="300dp"
-                        android:layout_marginTop="10dp"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="10dp"
-                        android:padding="10dp"
-                        android:text="Tax No"
                         android:textColor="@color/black"
                         android:textStyle="bold" />
 
@@ -199,6 +171,109 @@
                         android:text="DC"
                         android:textColor="@color/black"
                         android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/taxnotxt"
+                        android:layout_width="300dp"
+                        android:layout_marginTop="10dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="10dp"
+                        android:padding="10dp"
+                        android:text="Tax No"
+                        android:textColor="@color/black"
+                        android:textStyle="bold" />
+
+
+
+                    <TextView
+                        android:id="@+id/statetxt"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginTop="10dp"
+                        android:padding="10dp"
+                        android:text="State"
+                        android:textColor="@color/black"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/addresstxt"
+                        android:layout_width="300dp"
+                        android:layout_marginTop="10dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="10dp"
+                        android:padding="10dp"
+                        android:text="Address"
+                        android:textColor="@color/black"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/citytxt"
+                        android:layout_width="300dp"
+                        android:layout_marginTop="10dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="10dp"
+                        android:padding="10dp"
+                        android:text="City:"
+                        android:textColor="@color/black"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/pincodetxt"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="10dp"
+                        android:padding="10dp"
+                        android:layout_marginTop="10dp"
+                        android:text="Pincode"
+                        android:textColor="@color/black"
+                        android:textStyle="bold" />
+                    <TextView
+                        android:id="@+id/mobiletxt"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="10dp"
+                        android:padding="10dp"
+                        android:layout_marginTop="10dp"
+                        android:text="Mobile No"
+                        android:textColor="@color/black"
+                        android:textStyle="bold" />
+                    <TextView
+                        android:id="@+id/emailtxt"
+                        android:layout_width="300dp"
+                        android:layout_marginTop="10dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="10dp"
+                        android:padding="10dp"
+                        android:text="Email"
+                        android:textColor="@color/black"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/Contactpersontxt"
+                        android:layout_width="300dp"
+                        android:layout_marginTop="10dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="10dp"
+                        android:padding="10dp"
+                        android:text="Contact person"
+                        android:textColor="@color/black"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/pancardnotxt"
+                        android:layout_width="300dp"
+                        android:layout_marginTop="10dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="10dp"
+                        android:padding="10dp"
+                        android:text="Pancard No"
+                        android:textColor="@color/black"
+                        android:textStyle="bold" />
+
+
+
+
 
 
                 </LinearLayout>

@@ -1,4 +1,4 @@
-package com.example.ishopbillingsoftware.items;
+package com.example.ishopbillingsoftware.sales;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
@@ -17,9 +17,11 @@ import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.ishopbillingsoftware.R;
-import com.example.ishopbillingsoftware.sales.ChargesList;
-import com.example.ishopbillingsoftware.sales.ChargesViewListActivity;
-import com.example.ishopbillingsoftware.sales.OtherchargesAdapter;
+import com.example.ishopbillingsoftware.items.APIResponseUpdate;
+import com.example.ishopbillingsoftware.items.ProductItem;
+import com.example.ishopbillingsoftware.items.ProductItemDetailsActivity;
+import com.example.ishopbillingsoftware.items.ProductdetailsActivity;
+import com.example.ishopbillingsoftware.items.ViewListAdapter;
 import com.example.ishopbillingsoftware.server.ApiClient;
 
 import java.util.ArrayList;
@@ -30,102 +32,76 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class ViewListAdapter extends RecyclerView.Adapter<ViewListAdapter.Viewholder> {
+public class SaleschargesAdapter extends RecyclerView.Adapter<SaleschargesAdapter.Viewholder> {
 
     private final Context context;
-    private List<ProductItem> viewListDataList;
-    String productId;
+    private List<Salescharges> viewListDataList;
+    String salesRegID;
 
-    private List<ProductItem> productListFull;
-    ViewListAdapter adapter;
+    private List<Salescharges> productListFull;
+    SaleschargesAdapter adapter;
 
 
-    public ViewListAdapter(ViewListActivity context, List<ProductItem> viewListDataList, ViewListAdapter adapter) {
+    public SaleschargesAdapter(SalesViewListActivity context, List<Salescharges> viewListDataList, SaleschargesAdapter adapter) {
         this.context = context;
         this.viewListDataList = viewListDataList;
         this.productListFull = new ArrayList<>(viewListDataList);
         this.adapter = adapter;
 
     }
-
-
-
     // Method to reset the list data
     @SuppressLint("NotifyDataSetChanged")
-    public void setProductList(List<ProductItem> productList) {
+    public void setProductList(List<Salescharges> productList) {
         this.viewListDataList = productList;
         this.productListFull = new ArrayList<>(productList);
         notifyDataSetChanged();
     }
     @NonNull
     @Override
-    public Viewholder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+    public SaleschargesAdapter.Viewholder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         // to inflate the layout for each item of recycler view.
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.viewlist, parent, false);
-        return new Viewholder(view);
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.salesviewlist, parent, false);
+        return new SaleschargesAdapter.Viewholder(view);
     }
 
+    @SuppressLint("SetTextI18n")
     @Override
-    public void onBindViewHolder(@NonNull Viewholder holder, @SuppressLint("RecyclerView") int position) {
+    public void onBindViewHolder(@NonNull SaleschargesAdapter.Viewholder holder, @SuppressLint("RecyclerView") int position) {
 
 
         // to set data to textview and imageview of each card layout
-        ProductItem model = viewListDataList.get(position);
-        holder.itemname.setText(model.getItemName());
-        holder.shortname.setText(model.getShortName());
-         productId = model.getProductItemId();
-
-        holder.edit.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-                Intent in = new Intent(context,ProductdetailsActivity.class);
-                in.putExtra("productid",productId);
-                in.putExtra("itemname",model.getItemName());
-                in.putExtra("shortname",model.getShortName());
-                in.putExtra("hsccode",model.getHSNCode());
-                in.putExtra("taxSlab",model.getTaxSlab());
-                in.putExtra("company",model.getCompany());
-                in.putExtra("group",model.getGroup());
-                in.putExtra("purchase",model.getPurchase());
-                in.putExtra("sale",model.getSalePrice());
-                in.putExtra("mrp",model.getMrp());
-                context.startActivity(in);
-
-            }
-        });
+        Salescharges model = viewListDataList.get(position);
+        holder.partynametxt.setText("Party Name:  "+model.getPartyName());
+        holder.billnotxt.setText("Bill No:  "+String.valueOf(model.getBillNo()));
+        holder.duedatetxt.setText("Due Date:  "+model.getDueDate());
+        holder.itemnametxt.setText("Item Name:  "+model.getItemName());
+        holder.qtytxt.setText("Qty:  "+String.valueOf(model.getQty()));
+        holder.altqtytxt.setText("AltQty:  "+String.valueOf(model.getAltQty()));
+        holder.freetxt.setText("Free:  "+String.valueOf(model.getFree()));
+        holder.pertxt.setText("Per:  "+model.getPer());
+        String rate = String.valueOf(model.getRate());
+        holder.ratetxt.setText("Rate:  "+rate);
+        holder.discstxt.setText("Dics:  "+String.valueOf(model.getDiscs()) );
+        holder.discamounttxt.setText("Disc Amount:  "+String.valueOf(model.getDiscAmount()));
+        holder.taxamounttxt.setText("Tax Amount:  "+String.valueOf(model.getTaxAmount()));
+        holder.netvaluetxt.setText("NetValue:  "+String.valueOf(model.getNetValue()));
+        holder.othrchargestxt.setText( "OtherCharges:  "+model.getOtherCharges());
+        holder.remarkstxt.setText( "Remarks:  "+model.getRemarks());
+        holder.onvaluetxt.setText("OnValue:  "+String.valueOf(model.getOnValue()));
+        holder.percentagetxt.setText( "Percentage:  "+model.getPer());
+        holder.plusminustxt.setText("Plus/Minus:  "+ model.getPlusMinus());
+        holder.amounttxt.setText("Amount:  "+String.valueOf(model.getAmount()));
+        salesRegID = model.getSaleRegId();
 
 
-        holder.itemcard.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent in = new Intent(context,ProductItemDetailsActivity.class);
-                in.putExtra("productid",productId);
-                in.putExtra("itemname",model.getItemName());
-                in.putExtra("shortname",model.getShortName());
-                in.putExtra("hsccode",model.getHSNCode());
-                in.putExtra("taxSlab",model.getTaxSlab());
-                in.putExtra("company",model.getCompany());
-                in.putExtra("group",model.getGroup());
-                in.putExtra("purchase",model.getPurchase());
-                in.putExtra("sale",model.getSalePrice());
-                in.putExtra("mrp",model.getMrp());
-                context.startActivity(in);
-            }
-        });
-        holder.delete.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                String pp = model.getProductItemId();
-                getDelete(pp,position);
-            }
-        });
+
+
 
 
     }
 
     private void getDelete(String prodId, int position) {
-       System.out.print(prodId);
+        System.out.print(prodId);
         try{
             HashMap<String, String> itemadd = new HashMap<String, String>();
             itemadd.put( "productItemId",prodId);
@@ -189,18 +165,18 @@ public class ViewListAdapter extends RecyclerView.Adapter<ViewListAdapter.Viewho
     private final Filter productFilter = new Filter() {
         @Override
         protected FilterResults performFiltering(CharSequence constraint) {
-            List<ProductItem> filteredList = new ArrayList<>();
+            List<Salescharges> filteredList = new ArrayList<>();
 
             if (constraint == null || constraint.length() == 0) {
                 filteredList.addAll(productListFull);
             } else {
                 String filterPattern = constraint.toString().toLowerCase().trim();
 
-                for (ProductItem product : productListFull) {
+                for (Salescharges product : productListFull) {
                     if (product.getItemName().toLowerCase().contains(filterPattern)) {
                         filteredList.add(product);
                     }
-                    else  if (product.getShortName().toLowerCase().contains(filterPattern)){
+                    else  if (product.getPartyName().toLowerCase().contains(filterPattern)){
                         filteredList.add(product);
                         //break;
                     }
@@ -226,23 +202,39 @@ public class ViewListAdapter extends RecyclerView.Adapter<ViewListAdapter.Viewho
     // View holder class for initializing of your views such as TextView and Imageview
     public static class Viewholder extends RecyclerView.ViewHolder {
 
-        private final TextView itemname,shortname;
+      TextView partynametxt,billnotxt,duedatetxt,itemnametxt,qtytxt,
+                altqtytxt,freetxt, pertxt,ratetxt,discamounttxt,
+                taxamounttxt,discstxt,netvaluetxt,othrchargestxt,remarkstxt,onvaluetxt,
+                percentagetxt,plusminustxt,amounttxt;
 
 
-       ImageButton edit,delete;
+        ImageButton edit,delete;
 
-CardView itemcard;
+        CardView itemcard;
 
         public Viewholder(@NonNull View itemView) {
             super(itemView);
 
-            itemname = itemView.findViewById(R.id.itemtxt);
-            shortname = itemView.findViewById(R.id.shortnametxt);
-            edit = itemView.findViewById(R.id.edit);
-            delete = itemView.findViewById(R.id.delete);
-            itemcard = itemView.findViewById(R.id.itemcard);
+            partynametxt = itemView.findViewById(R.id.partynametxt);
+            billnotxt = itemView.findViewById(R.id.billnotxt);
+            duedatetxt = itemView.findViewById(R.id.duedatetxt);
+            itemnametxt = itemView.findViewById(R.id.itemnametxt);
+            qtytxt = itemView.findViewById(R.id.qtytxt);
+            altqtytxt = itemView.findViewById(R.id.altqtytxt);
+            freetxt = itemView.findViewById(R.id.freetxt);
+            pertxt = itemView.findViewById(R.id.pertxt);
+            ratetxt = itemView.findViewById(R.id.ratetxt);
+            discamounttxt = itemView.findViewById(R.id.discamounttxt);
 
-
+            taxamounttxt = itemView.findViewById(R.id.taxamounttxt);
+            discstxt = itemView.findViewById(R.id.discstxt);
+            netvaluetxt = itemView.findViewById(R.id.netvaluetxt);
+            remarkstxt = itemView.findViewById(R.id.remarkstxt);
+            onvaluetxt = itemView.findViewById(R.id.onvaluetxt);
+            percentagetxt = itemView.findViewById(R.id.percentagetxt);
+            othrchargestxt = itemView.findViewById(R.id.othrchargestxt);
+            plusminustxt = itemView.findViewById(R.id.plusminustxt);
+            amounttxt = itemView.findViewById(R.id.amounttxt);
 
         }
     }

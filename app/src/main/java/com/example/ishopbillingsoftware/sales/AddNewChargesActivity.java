@@ -98,6 +98,16 @@ TextView edittxt,addnewtxt;
         });
 
 
+        viewbtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Intent in = new Intent(getApplicationContext(), ChargesViewListActivity.class);
+                startActivity(in);
+
+            }
+        });
+
 
     }
 
@@ -110,8 +120,8 @@ TextView edittxt,addnewtxt;
 
         // Create the main hashmap
         HashMap<String, Object> chargesMap = new HashMap<>();
-        chargesMap.put("chargesHeading", "Service Charge");
-        chargesMap.put("printAs", "Service Fee");
+        chargesMap.put("chargesHeading", chargesedit.getText().toString());
+        chargesMap.put("printAs", printasedit.getText().toString());
         chargesMap.put("accountHeadToPost", "Service Account");
         chargesMap.put("typesOfCharges", "Percentage");
         chargesMap.put("inputAmountOfChargesAs", "10%");
@@ -131,7 +141,7 @@ TextView edittxt,addnewtxt;
             @Override
             public void onResponse(@NonNull Call<APIResponseCharges> call, @NonNull Response<APIResponseCharges> response) {
 
-System.out.print("chrges"+response.toString());
+ System.out.print("chrges"+response.toString());
 
 
 

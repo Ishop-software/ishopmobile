@@ -1,36 +1,35 @@
 package com.example.ishopbillingsoftware.accounts;
 
-import com.google.gson.annotations.SerializedName;
+public class Data {
 
-public class AccountList {
+    private String userId;
     private String accountId;
     private String name;
     private String printAs;
     private String group;
-    private String openingBal;
+    private double openingBal;
+    private String DR_CR;
     private String taxNo;
-
-    @SerializedName("Address1")
-    private String address1;
+    private String Address1;
     private String city;
-    private String pincode;
+    private int pincode;
     private String state;
     private String stateCode;
     private String mobileNo;
     private String email;
     private String contactPerson;
-    private String createdAt;
-    private  String updateAt;
 
 
-    public AccountList(String accountId, String name, String printAs, String group, String openingBal, String taxNo, String address1, String city, String pincode, String state, String stateCode, String mobileNo, String email, String contactPerson, String createdAt, String updateAt) {
+    public Data(String userId, String accountId, String name, String printAs, String group, double openingBal, String DR_CR, String taxNo, String address1, String city, int pincode, String state, String stateCode, String mobileNo, String email, String contactPerson) {
+        this.userId = userId;
         this.accountId = accountId;
         this.name = name;
         this.printAs = printAs;
         this.group = group;
         this.openingBal = openingBal;
+        this.DR_CR = DR_CR;
         this.taxNo = taxNo;
-        this.address1 = address1;
+        Address1 = address1;
         this.city = city;
         this.pincode = pincode;
         this.state = state;
@@ -38,10 +37,15 @@ public class AccountList {
         this.mobileNo = mobileNo;
         this.email = email;
         this.contactPerson = contactPerson;
-        this.createdAt = createdAt;
-        this.updateAt = updateAt;
     }
 
+    public String getUserId() {
+        return userId;
+    }
+
+    public void setUserId(String userId) {
+        this.userId = userId;
+    }
 
     public String getAccountId() {
         return accountId;
@@ -75,12 +79,20 @@ public class AccountList {
         this.group = group;
     }
 
-    public String getOpeningBal() {
+    public double getOpeningBal() {
         return openingBal;
     }
 
-    public void setOpeningBal(String openingBal) {
+    public void setOpeningBal(double openingBal) {
         this.openingBal = openingBal;
+    }
+
+    public String getDR_CR() {
+        return DR_CR;
+    }
+
+    public void setDR_CR(String DR_CR) {
+        this.DR_CR = DR_CR;
     }
 
     public String getTaxNo() {
@@ -92,11 +104,11 @@ public class AccountList {
     }
 
     public String getAddress1() {
-        return address1;
+        return Address1;
     }
 
     public void setAddress1(String address1) {
-        this.address1 = address1;
+        Address1 = address1;
     }
 
     public String getCity() {
@@ -107,11 +119,11 @@ public class AccountList {
         this.city = city;
     }
 
-    public String getPincode() {
+    public int getPincode() {
         return pincode;
     }
 
-    public void setPincode(String pincode) {
+    public void setPincode(int pincode) {
         this.pincode = pincode;
     }
 
@@ -153,21 +165,5 @@ public class AccountList {
 
     public void setContactPerson(String contactPerson) {
         this.contactPerson = contactPerson;
-    }
-
-    public String getCreatedAt() {
-        return createdAt;
-    }
-
-    public void setCreatedAt(String createdAt) {
-        this.createdAt = createdAt;
-    }
-
-    public String getUpdateAt() {
-        return updateAt;
-    }
-
-    public void setUpdateAt(String updateAt) {
-        this.updateAt = updateAt;
     }
 }
