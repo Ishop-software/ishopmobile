@@ -3,40 +3,23 @@ package com.example.ishopbillingsoftware.sales;
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
-import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
-import android.widget.RadioButton;
-import android.widget.RadioGroup;
 import android.widget.Spinner;
 import android.widget.TextView;
-import android.widget.Toast;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.widget.SearchView;
 import androidx.fragment.app.Fragment;
 
 import com.example.ishopbillingsoftware.R;
-import com.example.ishopbillingsoftware.accounts.APIResponseData;
-import com.example.ishopbillingsoftware.accounts.AccountActivity;
-import com.example.ishopbillingsoftware.accounts.AccountList;
-import com.example.ishopbillingsoftware.items.APIResponseProductItem;
+import com.example.ishopbillingsoftware.accounts.Data;
 import com.example.ishopbillingsoftware.items.ProductItem;
-import com.example.ishopbillingsoftware.server.ApiClient;
 
-import java.util.ArrayList;
 import java.util.List;
-import java.util.Objects;
-
-import retrofit2.Call;
-import retrofit2.Callback;
-import retrofit2.Response;
 
 public class ChargesFragment extends Fragment {
     TextView totalamounttxt1,returnamounttxt1;
@@ -47,7 +30,7 @@ public class ChargesFragment extends Fragment {
     public static  String ocname;
 
 
-    List<AccountList> accountLists ;
+    List<Data> accountLists ;
 
     SearchView searchView;
     List<ProductItem> productItems ;
@@ -58,7 +41,7 @@ public class ChargesFragment extends Fragment {
 
 
 
-    private List<AccountList> originalAccountList;
+    private List<Data> originalAccountList;
     public ChargesFragment() {
         // Required empty public constructor
     }
@@ -66,7 +49,9 @@ public class ChargesFragment extends Fragment {
     String[] itemlist = null ;
 
 
-
+    String[] otherchargeslist = { "Additional Tax(GST)", " Discount","Freight & Forwarding Charges",
+            "Host","Labour","Market Fee","Rounded off(-)","Rounded off(+)","SGST","CGST"
+    };
 
     @SuppressLint("MissingInflatedId")
     @Override
@@ -82,10 +67,23 @@ public class ChargesFragment extends Fragment {
         totalamounttxt1 = view.findViewById(R.id.totalamounttxt1);
         amountedit = view.findViewById(R.id.amountedit);
 
+
         ocspinner = view.findViewById(R.id.ocspinner);
         addnewbtn = view.findViewById(R.id.addnewbtn);
         editbtn = view.findViewById(R.id.editbtn);
         ocname = "ocname";
+
+        ArrayAdapter ad = new ArrayAdapter(getActivity(), android.R.layout.simple_spinner_item, otherchargeslist);
+
+        // set simple layout resource file
+        // for each item of spinner
+        ad.setDropDownViewResource(
+                android.R.layout
+                        .simple_spinner_dropdown_item);
+
+        // Set the ArrayAdapter (ad) data on the
+        // Spinner which binds data to spinner
+        ocspinner.setAdapter(ad);
 
 
 

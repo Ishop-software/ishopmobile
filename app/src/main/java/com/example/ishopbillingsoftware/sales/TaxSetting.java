@@ -3,9 +3,9 @@ package com.example.ishopbillingsoftware.sales;
 public class TaxSetting {
     private String taxSlab;
     private String HSNCode;
-    private boolean taxApplicable;
+    private String taxApplicable;
 
-    public TaxSetting(String taxSlab, String HSNCode, boolean taxApplicable) {
+    public TaxSetting(String taxSlab, String HSNCode, String taxApplicable) {
         this.taxSlab = taxSlab;
         this.HSNCode = HSNCode;
         this.taxApplicable = taxApplicable;
@@ -28,11 +28,11 @@ public class TaxSetting {
         this.HSNCode = HSNCode;
     }
 
-    public boolean isTaxApplicable() {
+    public String isTaxApplicable() {
         return taxApplicable;
     }
 
-    public void setTaxApplicable(boolean taxApplicable) {
+    public void setTaxApplicable(String taxApplicable) {
         this.taxApplicable = taxApplicable;
     }
 }

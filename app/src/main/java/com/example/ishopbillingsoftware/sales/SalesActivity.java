@@ -129,57 +129,56 @@ public class SalesActivity extends AppCompatActivity {
 
         try{
             HashMap<String, Object> saleadd = new HashMap<String, Object>();
+
             saleadd.put( "partyName",partyname);
             saleadd.put("billNo",billno);
             saleadd.put("dueDate","2024-12-31T00:00:00.000Z");
             saleadd.put("itemName",itemname);
+
             saleadd.put("qty",qty);
             saleadd.put("altQty",50);
             saleadd.put( "free",free);
             saleadd.put("per","Unit");
-            saleadd.put("rate",rate);
 
+            saleadd.put("rate",rate);
             saleadd.put("discAmount",discamount);
             saleadd.put("basicAmount", basicAmount);
             saleadd.put( "taxAmount", taxAmount);
+
             saleadd.put("discs",discs);
             saleadd.put("netValue",netValue);
-
-
             saleadd.put("otherCharges",otherCharges);
             saleadd.put("remarks",remarks);
+
+
             saleadd.put( "onValue",onValue);
             saleadd.put("at",discountedit);
             saleadd.put("plusMinus",plusMinus);
-
             saleadd.put("amount", amount);
 
             System.out.print("saleadd"+saleadd);
 
-            Call<APIResponseSale> call = ApiClient.getUserService().addsale(saleadd);
+            Call<APIResponseSale> call = ApiClient.getUserService().addsale(saleadd,HomePageActivity.token);
 
             call.enqueue(new Callback<APIResponseSale>() {
                 @SuppressLint({"SetTextI18n", "SuspiciousIndentation"})
                 @Override
                 public void onResponse(@NonNull Call<APIResponseSale> call, @NonNull Response<APIResponseSale> response) {
                     System.out.print("response"+response.toString());
-
-
-
                     if(response.isSuccessful()){
                         APIResponseSale apiResponse = response.body();
                         assert apiResponse != null;
                         String success = apiResponse.getSuccess();
                         String message = apiResponse.getMessage();
                         String productid = apiResponse.getSaleRegId();
-                        Toast.makeText(getApplicationContext(),message,Toast.LENGTH_LONG).show();
+
+                        Toast.makeText(getApplicationContext(),message+success+productid,Toast.LENGTH_LONG).show();
 
 
-
-                        //Toast.makeText(getApplicationContext(),productid,Toast.LENGTH_LONG).show();
-                        System.out.print("ITEM"+message+productid);
                     }else{
+
                         Toast.makeText(getApplicationContext(),"message",Toast.LENGTH_LONG).show();
+
                     }
 
                 }

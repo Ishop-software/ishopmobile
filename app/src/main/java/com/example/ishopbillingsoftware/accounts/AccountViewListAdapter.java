@@ -31,14 +31,14 @@ import retrofit2.Response;
 public class AccountViewListAdapter extends RecyclerView.Adapter<AccountViewListAdapter.Viewholder> {
 
     private final Context context;
-    private List<AccountList> accountLists;
+    private List<Data> accountLists;
     String productId;
 
-    private List<AccountList> accountListFull;
+    private List<Data> accountListFull;
     AccountViewListAdapter adapter;
 
 
-    public AccountViewListAdapter(AccounviewlistActivity context, List<AccountList> accountLists, AccountViewListAdapter adapter) {
+    public AccountViewListAdapter(AccounviewlistActivity context, List<Data> accountLists, AccountViewListAdapter adapter) {
         this.context = context;
         this.accountLists = accountLists;
 
@@ -51,7 +51,7 @@ public class AccountViewListAdapter extends RecyclerView.Adapter<AccountViewList
 
     // Method to reset the list data
     @SuppressLint("NotifyDataSetChanged")
-    public void setProductList(List<AccountList> accountLists) {
+    public void setProductList(List<Data> accountLists) {
         this.accountLists = accountLists;
         this.accountListFull = new ArrayList<>(accountLists);
         notifyDataSetChanged();
@@ -61,16 +61,17 @@ public class AccountViewListAdapter extends RecyclerView.Adapter<AccountViewList
     @Override
     public Viewholder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         // to inflate the layout for each item of recycler view.
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.viewlist, parent, false);
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.accountlist, parent, false);
         return new Viewholder(view);
     }
 
     @Override
     public void onBindViewHolder(@NonNull Viewholder holder, @SuppressLint("RecyclerView") int position) {
 
-        AccountList model = accountLists.get(position);
-        holder.itemname.setText(model.getName());
-        holder.shortname.setText(model.getGroup());
+        Data model = accountLists.get(position);
+
+        holder.accountname.setText(model.getName());
+        holder.groupname.setText(model.getGroup());
 
         holder.edit.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -191,14 +192,14 @@ public class AccountViewListAdapter extends RecyclerView.Adapter<AccountViewList
     private final Filter productFilter = new Filter() {
         @Override
         protected FilterResults performFiltering(CharSequence constraint) {
-            List<AccountList> filteredList = new ArrayList<>();
+            List<Data> filteredList = new ArrayList<>();
 
             if (constraint == null || constraint.length() == 0) {
                 filteredList.addAll(accountListFull);
             } else {
                 String filterPattern = constraint.toString().toLowerCase().trim();
 
-                for (AccountList account : accountListFull) {
+                for (Data account : accountListFull) {
                     if (account.getName().toLowerCase().contains(filterPattern)) {
                         filteredList.add(account);
                     }
@@ -224,7 +225,7 @@ public class AccountViewListAdapter extends RecyclerView.Adapter<AccountViewList
     // View holder class for initializing of your views such as TextView and Imageview
     public static class Viewholder extends RecyclerView.ViewHolder {
 
-        private final TextView itemname, shortname;
+        private final TextView accountname, groupname;
 
 
         ImageButton edit, delete;
@@ -234,8 +235,8 @@ public class AccountViewListAdapter extends RecyclerView.Adapter<AccountViewList
         public Viewholder(@NonNull View itemView) {
             super(itemView);
 
-            itemname = itemView.findViewById(R.id.itemtxt);
-            shortname = itemView.findViewById(R.id.shortnametxt);
+            accountname = itemView.findViewById(R.id.accountnametxt);
+            groupname = itemView.findViewById(R.id.groupnametxt);
             edit = itemView.findViewById(R.id.edit);
             delete = itemView.findViewById(R.id.delete);
             itemcard = itemView.findViewById(R.id.itemcard);

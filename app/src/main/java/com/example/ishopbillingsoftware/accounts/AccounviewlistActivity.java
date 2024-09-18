@@ -15,6 +15,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.ishopbillingsoftware.R;
+import com.example.ishopbillingsoftware.homepage.HomePageActivity;
 import com.example.ishopbillingsoftware.server.ApiClient;
 
 import java.util.ArrayList;
@@ -29,12 +30,12 @@ public class AccounviewlistActivity extends AppCompatActivity {
     RecyclerView recyclerView;
 
 
-    List<AccountList> accountLists ;
+    List<Data> accountLists ;
 
     SearchView searchView;
     AccountViewListAdapter adapter;
 
-    private List<AccountList> originalAccountList;
+    private List<Data> originalAccountList;
 
     ImageButton filterbtn;
     String token;
@@ -69,7 +70,7 @@ public class AccounviewlistActivity extends AppCompatActivity {
 
         try {
 
-            Call<APIResponseData> call = ApiClient.getUserService().getAllAccountDetails(token);
+            Call<APIResponseData> call = ApiClient.getUserService().getAllAccountDetails(HomePageActivity.token);
 
             call.enqueue(new Callback<APIResponseData>() {
 
@@ -82,14 +83,15 @@ public class AccounviewlistActivity extends AppCompatActivity {
 
                     if (response.isSuccessful()){
 
-                        APIResponseData  apiResponseProductItem = response.body();
-                        if (apiResponseProductItem !=null){
-                            accountLists = apiResponseProductItem.getData();
+                        APIResponseData  apiResponseData = response.body();
+                        if (apiResponseData !=null){
+                            accountLists = apiResponseData.getData();
+                            System.out.print(accountLists.size());
+                            System.out.print(accountLists.toString());
                             // Keep a copy of the original list
                             originalAccountList = new ArrayList<>(accountLists);
                             if (accountLists!=null){
-                                System.out.print("productitem"+accountLists.size());
-                                System.out.print("productitem1"+accountLists.toString());
+
                                 LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getApplicationContext());
                                 recyclerView.setLayoutManager(linearLayoutManager);
                                 adapter = new AccountViewListAdapter(AccounviewlistActivity.this,accountLists,adapter);
@@ -125,7 +127,7 @@ public class AccounviewlistActivity extends AppCompatActivity {
                 String lowerCaseQuery = query.toLowerCase();
 
                 boolean found = false;
-                for (AccountList item : accountLists) {
+                for (Data item : accountLists) {
                     if (item.getName().toLowerCase().contains(lowerCaseQuery)) {
                         found = true;
                         break;

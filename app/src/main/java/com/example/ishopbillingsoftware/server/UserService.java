@@ -3,11 +3,15 @@ package com.example.ishopbillingsoftware.server;
 
 import com.example.ishopbillingsoftware.APIResponse;
 import com.example.ishopbillingsoftware.accounts.APIResponseData;
+import com.example.ishopbillingsoftware.accounts.APIResponseGP;
+import com.example.ishopbillingsoftware.accounts.APIResponseGroup;
 import com.example.ishopbillingsoftware.items.APIResponseItem;
 import com.example.ishopbillingsoftware.items.APIResponseProductItem;
 import com.example.ishopbillingsoftware.items.APIResponseUpdate;
 import com.example.ishopbillingsoftware.sales.APIResponseCharges;
+import com.example.ishopbillingsoftware.sales.APIResponseChargesList;
 import com.example.ishopbillingsoftware.sales.APIResponseSale;
+import com.example.ishopbillingsoftware.sales.APIResponseSalesList;
 
 import java.util.HashMap;
 
@@ -53,7 +57,7 @@ public interface UserService {
 
     @Headers({"Content-Type: application/json;charset=UTF-8"})
     @POST("api/users/createAccount")
-    Call<APIResponseUpdate> create (@Body HashMap<String, String> fields);
+    Call<APIResponseUpdate> createaccount (@Body HashMap<String, String> fields,@Header("Authorization") String token);
 
     @Headers({"Content-Type: application/json;charset=UTF-8"})
     @POST("/api/users/getAllAccountDetails")
@@ -66,7 +70,7 @@ public interface UserService {
 
     @Headers({"Content-Type: application/json;charset=UTF-8"})
     @POST("api/usersales/addSalesRegister")
-    Call<APIResponseSale> addsale(@Body HashMap<String, Object> fields);
+    Call<APIResponseSale> addsale(@Body HashMap<String, Object> fields,@Header("Authorization") String token);
 
     @Headers({"Content-Type: application/json;charset=UTF-8"})
     @POST("api/usercharge/addChargeRegister")
@@ -74,6 +78,19 @@ public interface UserService {
 
     @Headers({"Content-Type: application/json;charset=UTF-8"})
     @POST("api/usercharge/getAllChargeList")
-    Call<APIResponseCharges> viewlistcharge (@Body HashMap<String, Object> fields);
+    Call<APIResponseChargesList> viewlistcharge ();
+
+
+    @Headers({"Content-Type: application/json;charset=UTF-8"})
+    @POST("api/groupaccounts/addGroupAccount")
+    Call<APIResponseGroup> addgroup (@Body HashMap<String, String> fields);
+
+    @Headers({"Content-Type: application/json;charset=UTF-8"})
+    @POST("api/groupaccounts/getAllGroupAccount")
+    Call<APIResponseGP> grouplist ();
+
+    @Headers({"Content-Type: application/json;charset=UTF-8"})
+    @POST("api/usersales/getAllSalesList")
+    Call<APIResponseSalesList> viewsaleschargelist (@Header("Authorization") String token);
 
 }

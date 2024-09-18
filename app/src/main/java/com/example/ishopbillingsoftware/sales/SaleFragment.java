@@ -28,7 +28,7 @@ import androidx.fragment.app.Fragment;
 import com.example.ishopbillingsoftware.R;
 import com.example.ishopbillingsoftware.accounts.APIResponseData;
 import com.example.ishopbillingsoftware.accounts.AccountActivity;
-import com.example.ishopbillingsoftware.accounts.AccountList;
+import com.example.ishopbillingsoftware.accounts.Data;
 import com.example.ishopbillingsoftware.items.APIResponseProductItem;
 import com.example.ishopbillingsoftware.items.ProductItem;
 import com.example.ishopbillingsoftware.printdesign.Salesprint1Activity;
@@ -54,12 +54,12 @@ public class SaleFragment extends Fragment {
     RadioGroup radioGroup;
     RadioButton cash,credit;
     Button addnewcardbtn;
-    List<AccountList> accountLists ;
+    List<Data> accountLists ;
     SearchView searchView;
     List<ProductItem> productItems ;
     private List<ProductItem> originalProductList;
 
-    private List<AccountList> originalAccountList;
+    private List<Data> originalAccountList;
     public SaleFragment() {
         // Required empty public constructor
     }
@@ -69,7 +69,8 @@ public class SaleFragment extends Fragment {
     String[] tax = { "Tax Inclusive", "Tax Exclusive",
             "Tax Free",
     };
-    String discountpercent;
+    String discountpercent,receivedamountt;
+    Double netvalue;
 
     @SuppressLint("MissingInflatedId")
     @Override
@@ -208,7 +209,7 @@ public class SaleFragment extends Fragment {
                         double discpereditt = Double.parseDouble(discountpercent);
                         Double discamount = (basicamountvalue) * (discpereditt/100);
                         discamountedit.setText(String.valueOf(discamount));
-                        Double netvalue = basicamountvalue - discamount+taxamount;
+                        netvalue = basicamountvalue - discamount+taxamount;
                         netvalueedit.setText(String.valueOf(netvalue));
                     }
 
@@ -321,8 +322,8 @@ public class SaleFragment extends Fragment {
             double quantity1 = Double.parseDouble(quantity);
             double rate1 = quantity1 * rate;
             taxamount = (rate1*taxper)/100;
-            double rr = rate - taxamount;
-            rateedit.setText(String.valueOf(rr));
+            double rr = rate1 - taxamount;
+            rateedit.setText(String.valueOf(rate));
             baedit.setText(String.valueOf(rr));
             taxamountedit.setText(String.valueOf(taxamount));
             basicamountvalue = rr;
@@ -331,11 +332,19 @@ public class SaleFragment extends Fragment {
             if (discountpercent.trim().isEmpty()) {
                 // Handle the case where the string is null or empty
                 System.out.println("The value is null or empty");
+                discperedit.setText(String.valueOf(0));
+                // Handle the case where the string is null or empty
+                System.out.println("The value is null or empty");
+                double discpereditt = 0.0;
+                Double discamount = 0.0;
+                discamountedit.setText(String.valueOf(discamount));
+               netvalue = basicamountvalue - discamount+taxamount;
+                netvalueedit.setText(String.valueOf(netvalue));
             } else {
                 double discpereditt = Double.parseDouble(discountpercent);
                 Double discamount = (basicamountvalue) * (discpereditt/100);
                 discamountedit.setText(String.valueOf(discamount));
-                Double netvalue = basicamountvalue - discamount+taxamount;
+                netvalue = basicamountvalue - discamount+taxamount;
                 netvalueedit.setText(String.valueOf(netvalue));
             }
 
@@ -350,13 +359,20 @@ public class SaleFragment extends Fragment {
             taxamountedit.setText(String.valueOf(taxamount));
             discountpercent = discperedit.getText().toString();
             if (discountpercent.trim().isEmpty()) {
+
+                discperedit.setText(String.valueOf(0));
                 // Handle the case where the string is null or empty
                 System.out.println("The value is null or empty");
+                double discpereditt = 0.0;
+                Double discamount = 0.0;
+                discamountedit.setText(String.valueOf(discamount));
+                Double netvalue = basicamountvalue - discamount+taxamount;
+                netvalueedit.setText(String.valueOf(netvalue));
             } else {
                 double discpereditt = Double.parseDouble(discountpercent);
                 Double discamount = (basicamountvalue) * (discpereditt/100);
                 discamountedit.setText(String.valueOf(discamount));
-                Double netvalue = basicamountvalue - discamount+taxamount;
+                netvalue = basicamountvalue - discamount+taxamount;
                 netvalueedit.setText(String.valueOf(netvalue));
             }
 
@@ -374,16 +390,59 @@ public class SaleFragment extends Fragment {
             if (discountpercent.trim().isEmpty()) {
                 // Handle the case where the string is null or empty
                 System.out.println("The value is null or empty");
+                discperedit.setText(0);
+                // Handle the case where the string is null or empty
+                System.out.println("The value is null or empty");
+                double discpereditt = 0.0;
+                Double discamount = 0.0;
+                discamountedit.setText(String.valueOf(discamount));
+                Double netvalue = basicamountvalue - discamount;
+                netvalueedit.setText(String.valueOf(netvalue));
             } else {
                 double discpereditt = Double.parseDouble(discountpercent);
                 Double discamount = (basicamountvalue) * (discpereditt/100);
                 discamountedit.setText(String.valueOf(discamount));
-                Double netvalue = basicamountvalue - discamount+taxamount;
+                 netvalue = basicamountvalue - discamount;
                 netvalueedit.setText(String.valueOf(netvalue));
             }
 
 
         }
+        Double ff  = Double.valueOf(netvalueedit.getText().toString());
+        totalamounttxt1.setText(String.valueOf(ff));
+
+        receivedamtedit.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {}
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+                if (s.length() > 0) {
+                    receivedamtedit.requestFocus();
+                    receivedamountt = receivedamtedit.getText().toString();
+                    if (receivedamountt == null || receivedamountt.trim().isEmpty()) {
+                        // Handle the case where the string is null or empty
+                        System.out.println("The value is null or empty");
+                    } else {
+
+
+
+                        Double receivdamt = Double.valueOf(receivedamtedit.getText().toString());
+                        Double netvaluu = Double.valueOf(netvalueedit.getText().toString());
+                        Double returnamount = receivdamt - netvaluu;
+                        returnamounttxt1.setText(String.valueOf(returnamount));
+                    }
+
+                }
+            }
+        });
+
+
 
 
     }
